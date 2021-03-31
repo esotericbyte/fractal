@@ -32,18 +32,14 @@ pub fn connect(ui: &UI, app_runtime: AppRuntime) {
         glib::signal::Inhibit(true)
     }));
 
-    confirm.connect_clicked(
-        clone!(@strong entry, @strong dialog, @strong app_runtime => move |_| {
+    confirm.connect_clicked(clone!(@strong dialog, @strong app_runtime => move |_| {
             dialog.hide();
             app_runtime.update_state_with(|state| state.join_to_room());
-            entry.set_text("");
-        }),
-    );
+    }));
 
-    entry.connect_activate(clone!(@strong dialog => move |entry| {
+    entry.connect_activate(clone!(@strong dialog => move |_| {
         dialog.hide();
         app_runtime.update_state_with(|state| state.join_to_room());
-        entry.set_text("");
     }));
     entry.connect_changed(clone!(@strong confirm => move |entry| {
             confirm.set_sensitive(entry.get_buffer().get_length() > 0);

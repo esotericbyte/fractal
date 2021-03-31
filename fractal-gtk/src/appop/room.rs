@@ -523,15 +523,13 @@ impl AppOp {
 
     pub fn join_to_room(&mut self) {
         let login_data = unwrap_or_unit_return!(self.login_data.clone());
-        let try_room_id = self
+        let entry = self
             .ui
             .builder
             .get_object::<gtk::Entry>("join_room_name")
-            .expect("Can't find join_room_name in ui file.")
-            .get_text()
-            .to_string()
-            .trim()
-            .try_into();
+            .expect("Can't find join_room_name in ui file.");
+        let try_room_id = entry.get_text().to_string().trim().try_into();
+        entry.set_text("");
 
         let room_id = match try_room_id {
             Ok(room_id) => room_id,
