@@ -533,7 +533,8 @@ impl AppOp {
 
         let room_id = match try_room_id {
             Ok(room_id) => room_id,
-            Err(_) => {
+            Err(err) => {
+                error!("The room ID is malformed: {}", err);
                 let error = i18n("The room ID is malformed");
                 APPOP!(show_error, (error));
                 return;
