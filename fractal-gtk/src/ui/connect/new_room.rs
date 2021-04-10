@@ -43,20 +43,14 @@ pub fn connect(ui: &UI, app_runtime: AppRuntime) {
         }),
     );
 
-    confirm.connect_clicked(
-        clone!(@strong entry, @strong dialog, @strong private, @strong app_runtime => move |_| {
-            dialog.hide();
-            app_runtime.update_state_with(|state| state.create_new_room());
-            entry.set_text("");
-            private.set_active(true);
-        }),
-    );
-
-    entry.connect_activate(clone!(@strong dialog => move |entry| {
+    confirm.connect_clicked(clone!(@strong dialog, @strong app_runtime => move |_| {
         dialog.hide();
         app_runtime.update_state_with(|state| state.create_new_room());
-        entry.set_text("");
-        private.set_active(true);
+    }));
+
+    entry.connect_activate(clone!(@strong dialog => move |_| {
+        dialog.hide();
+        app_runtime.update_state_with(|state| state.create_new_room());
     }));
     entry.connect_changed(clone!(@strong confirm => move |entry| {
         confirm.set_sensitive(entry.get_buffer().get_length() > 0);

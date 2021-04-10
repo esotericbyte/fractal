@@ -385,10 +385,13 @@ impl AppOp {
             .expect("Can't find private_visibility_button in ui file.");
 
         let name = name_entry.get_text().to_string();
+        name_entry.set_text("");
+
         // Since the switcher
         let privacy = if private.get_active() {
             room::RoomType::Private
         } else {
+            private.set_active(true);
             room::RoomType::Public
         };
 
