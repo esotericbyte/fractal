@@ -7,7 +7,6 @@ use chrono::DateTime;
 use chrono::Utc;
 use either::Either;
 use log::{debug, info};
-use matrix_sdk::deserialized_responses::SyncResponse;
 use matrix_sdk::directory::PublicRoomsChunk;
 use matrix_sdk::events::{
     room::member::{MemberEventContent, MembershipState},
@@ -15,11 +14,11 @@ use matrix_sdk::events::{
     AnySyncEphemeralRoomEvent, AnySyncRoomEvent, AnySyncStateEvent, SyncStateEvent,
 };
 use matrix_sdk::identifiers::{EventId, RoomAliasId, RoomId, UserId};
+use matrix_sdk::{deserialized_responses::SyncResponse, identifiers::MxcUri};
 use serde::{Deserialize, Serialize};
 use serde_json::value::Value;
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::convert::{TryFrom, TryInto};
-use url::{ParseError as UrlError, Url};
 
 #[derive(Debug, Clone, PartialEq)]
 pub enum RoomMembership {
@@ -114,7 +113,7 @@ struct CustomDirectEvent {
 #[derive(Debug, Clone)]
 pub struct Room {
     pub id: RoomId,
-    pub avatar: Option<Url>,
+    pub avatar: Option<MxcUri>,
     pub name: Option<String>,
     pub topic: Option<String>,
     pub alias: Option<RoomAliasId>,
@@ -227,12 +226,10 @@ impl Room {
                 avatar: stevents
                     .iter()
                     .find_map(|event| match event {
-                        AnySyncStateEvent::RoomAvatar(ev) => Some(ev.content.url.as_deref()),
+                        AnySyncStateEvent::RoomAvatar(ev) => Some(ev.content.url.clone()),
                         _ => None,
                     })
-                    .flatten()
-                    .map(Url::parse)
-                    .and_then(Result::ok),
+                    .flatten(),
                 alias: stevents
                     .iter()
                     .find_map(|event| match event {
@@ -280,7 +277,11 @@ impl Room {
                         AnyBasicEvent::Custom(ev)
                             if ev.content.event_type == "org.gnome.fractal.language" =>
                         {
-                            ev.content.json["input_language"].as_str()
+                            ev.content
+                                .data
+                                .get("input_language")
+                                .map(|v| v.as_str())
+                                .flatten()
                         }
                         _ => None,
                     })
@@ -360,7 +361,7 @@ impl Room {
                     let kicker = message.sender().clone();
                     if kicker != user_id {
                         if let AnyMessageEventContent::Custom(message) = message.content() {
-                            if let Value::String(kick_reason) = &message.json["reason"] {
+                            if let Some(Value::String(kick_reason)) = &message.data.get("reason") {
                                 let reason = Reason::Kicked(kick_reason.clone(), kicker);
                                 return Self::new(k.clone(), RoomMembership::Left(reason));
                             }
@@ -416,14 +417,10 @@ impl Room {
                     avatar: stevents
                         .iter()
                         .find_map(|event| match event {
-                            AnyStrippedStateEvent::RoomAvatar(ev) => {
-                                Some(ev.content.url.as_deref())
-                            }
+                            AnyStrippedStateEvent::RoomAvatar(ev) => Some(ev.content.url.clone()),
                             _ => None,
                         })
-                        .flatten()
-                        .map(Url::parse)
-                        .and_then(Result::ok),
+                        .flatten(),
                     alias: stevents
                         .iter()
                         .find_map(|event| match event {
@@ -457,24 +454,18 @@ impl Room {
     }
 }
 
-impl TryFrom<PublicRoomsChunk> for Room {
-    type Error = UrlError;
-
-    fn try_from(input: PublicRoomsChunk) -> Result<Self, Self::Error> {
-        Ok(Self {
+impl From<PublicRoomsChunk> for Room {
+    fn from(input: PublicRoomsChunk) -> Self {
+        Self {
             alias: input.canonical_alias,
             name: input.name,
-            avatar: input
-                .avatar_url
-                .filter(|url| !url.is_empty())
-                .map(|url| Url::parse(&url))
-                .transpose()?,
+            avatar: input.avatar_url,
             topic: input.topic,
             n_members: input.num_joined_members.into(),
             world_readable: input.world_readable,
             guest_can_join: input.guest_can_join,
             ..Self::new(input.room_id, RoomMembership::None)
-        })
+        }
     }
 }
 
@@ -526,14 +517,7 @@ fn parse_room_member(msg: &SyncStateEvent<MemberEventContent>) -> Option<Member>
         Some(Member {
             uid: msg.sender.clone(),
             alias: msg.content.displayname.clone(),
-            avatar: msg
-                .content
-                .avatar_url
-                .as_ref()
-                .map(String::as_str)
-                .map(Url::parse)
-                .and_then(Result::ok)
-                .map(Either::Left),
+            avatar: msg.content.avatar_url.clone().map(Either::Left),
         })
     } else {
         None

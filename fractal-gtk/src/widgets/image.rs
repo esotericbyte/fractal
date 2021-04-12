@@ -11,14 +11,13 @@ use glib::source::Continue;
 use gtk::prelude::*;
 use gtk::DrawingArea;
 use log::error;
-use matrix_sdk::Client as MatrixClient;
+use matrix_sdk::{identifiers::MxcUri, Client as MatrixClient};
 use std::path::{Path, PathBuf};
 use std::sync::{Arc, Mutex};
-use url::Url;
 
 #[derive(Clone, Debug)]
 pub struct Image {
-    pub path: Either<Url, PathBuf>,
+    pub path: Either<MxcUri, PathBuf>,
     pub local_path: Arc<Mutex<Option<PathBuf>>>,
     pub max_size: Option<(i32, i32)>,
     pub widget: DrawingArea,
@@ -45,7 +44,7 @@ impl Image {
     ///           .size(Some((50, 50)))
     ///           .build();
     /// ```
-    pub fn new(path: Either<Url, PathBuf>) -> Image {
+    pub fn new(path: Either<MxcUri, PathBuf>) -> Image {
         let da = DrawingArea::new();
         da.add_events(gdk::EventMask::ENTER_NOTIFY_MASK);
         da.add_events(gdk::EventMask::LEAVE_NOTIFY_MASK);
@@ -266,8 +265,8 @@ impl Image {
     /// in the `image` widget scaled to size
     pub fn load_async(&self, session_client: MatrixClient) {
         match self.path.as_ref() {
-            Either::Left(url) if url.scheme() == "mxc" => {
-                let mxc = url.clone();
+            Either::Left(mxc) => {
+                let mxc = mxc.clone();
                 // asyn load
                 let response = if self.thumb {
                     RUNTIME.spawn(async move { media::get_thumb(session_client, &mxc).await })
@@ -302,7 +301,6 @@ impl Image {
                     &path,
                 );
             }
-            _ => error!("The resource URL doesn't have the scheme mxc:"),
         }
     }
 }

@@ -1,6 +1,6 @@
 use crate::util::i18n::i18n;
 use glib::clone;
-use matrix_sdk::identifiers::RoomId;
+use matrix_sdk::identifiers::{MxcUri, RoomId};
 
 use gtk::prelude::*;
 use log::info;
@@ -225,7 +225,7 @@ impl RoomListGroup {
         });
     }
 
-    pub fn set_room_avatar(&mut self, room_id: RoomId, av: Option<Url>) {
+    pub fn set_room_avatar(&mut self, room_id: RoomId, av: Option<MxcUri>) {
         if let Some(r) = self.rooms.get_mut(&room_id) {
             r.set_avatar(av.clone());
         }
@@ -635,7 +635,7 @@ impl RoomList {
         });
     }
 
-    pub fn set_room_avatar(&mut self, room_id: RoomId, av: Option<Url>) {
+    pub fn set_room_avatar(&mut self, room_id: RoomId, av: Option<MxcUri>) {
         run_in_group!(self, &room_id, set_room_avatar, room_id, av);
     }
 

@@ -1,5 +1,5 @@
 use gtk::prelude::*;
-use url::Url;
+use matrix_sdk::identifiers::MxcUri;
 
 use crate::model::room::Room;
 
@@ -117,7 +117,7 @@ impl RoomRow {
         self.text.set_text(&name);
     }
 
-    pub fn set_avatar(&mut self, avatar: Option<Url>) {
+    pub fn set_avatar(&mut self, avatar: Option<MxcUri>) {
         self.room.avatar = avatar;
 
         let name = self.room.name.clone().unwrap_or_else(|| "...".to_string());

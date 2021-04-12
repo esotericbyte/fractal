@@ -11,7 +11,6 @@ use crate::appop::UserInfoCache;
 use crate::backend::HTTP_CLIENT;
 use crate::util::cache_dir_path;
 use log::error;
-use std::convert::TryInto;
 use std::path::PathBuf;
 
 use super::room::AttachedFileError;
@@ -496,12 +495,7 @@ pub async fn search(
     let request = UserDirectoryRequest::new(search_term);
     let response = session_client.send(request, None).await?;
 
-    response
-        .results
-        .into_iter()
-        .map(TryInto::try_into)
-        .collect::<Result<_, UrlError>>()
-        .map_err(Into::into)
+    Ok(response.results.into_iter().map(Into::into).collect())
 }
 
 #[derive(Debug)]
@@ -538,16 +532,12 @@ pub async fn get_user_avatar(
     let request = GetProfileRequest::new(user_id);
     let response = session_client.send(request, None).await?;
 
-    let img = match response
-        .avatar_url
-        .map(|url| Url::parse(&url))
-        .transpose()?
-        .map(|url| {
-            (
-                url,
-                cache_dir_path(None, user_id.as_str()).map_err(MediaError::from),
-            )
-        }) {
+    let img = match response.avatar_url.map(|url| {
+        (
+            url,
+            cache_dir_path(None, user_id.as_str()).map_err(MediaError::from),
+        )
+    }) {
         Some((url, Ok(dest))) => {
             dw_media(
                 session_client,

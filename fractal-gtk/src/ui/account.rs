@@ -280,7 +280,7 @@ impl AccountSettings {
                         1,
                     );
                 }
-                Medium::MSISDN => {
+                Medium::Msisdn => {
                     let s = if first_phone {
                         empty_phone.update(Some(item.address));
                         first_phone = false;

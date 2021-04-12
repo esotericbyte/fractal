@@ -12,7 +12,6 @@ use matrix_sdk::{
     },
     identifiers::{RoomId, UserId},
 };
-use url::Url;
 
 #[derive(Debug, Clone, Copy)]
 pub enum SearchType {
@@ -47,11 +46,7 @@ impl AppOp {
             }
             MembershipState::Join => {
                 let m = Member {
-                    avatar: ev
-                        .content
-                        .avatar_url
-                        .and_then(|u| Url::parse(&u).ok())
-                        .map(Either::Left),
+                    avatar: ev.content.avatar_url.map(Either::Left),
                     alias: ev.content.displayname,
                     uid: sender,
                 };

@@ -1,7 +1,7 @@
 use matrix_sdk::identifiers::{Error as IdentifierError, ServerName};
 use matrix_sdk::Client as MatrixClient;
 use matrix_sdk::Error as MatrixError;
-use std::convert::{TryFrom, TryInto};
+use std::convert::TryFrom;
 use url::ParseError as UrlError;
 
 use crate::globals;
@@ -112,8 +112,8 @@ pub async fn room_search(
     let rooms = response
         .chunk
         .into_iter()
-        .map(TryInto::try_into)
-        .collect::<Result<Vec<Room>, UrlError>>()?;
+        .map(Into::into)
+        .collect::<Vec<Room>>();
 
     for room in &rooms {
         if let Some(avatar) = room.avatar.as_ref() {

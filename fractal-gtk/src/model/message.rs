@@ -2,19 +2,18 @@ use chrono::prelude::*;
 use chrono::DateTime;
 use matrix_sdk::{
     events::{
-        room::message::{MessageEventContent, RedactedMessageEventContent, Relation},
+        room::message::{MessageEventContent, MessageType, RedactedMessageEventContent, Relation},
         sticker::{RedactedStickerEventContent, StickerEventContent},
         AnyMessageEvent, AnyRedactedMessageEvent, AnyRedactedSyncMessageEvent, AnyRoomEvent,
         AnySyncMessageEvent, AnySyncRoomEvent, EventContent, MessageEvent, RedactedMessageEvent,
     },
-    identifiers::{EventId, RoomId, UserId},
+    identifiers::{EventId, MxcUri, RoomId, UserId},
 };
 use serde_json::Value as JsonValue;
 use std::cmp::Ordering;
 use std::collections::HashMap;
 use std::convert::TryFrom;
 use std::path::PathBuf;
-use url::Url;
 
 //FIXME make properties private
 #[derive(Debug, Clone)]
@@ -24,9 +23,9 @@ pub struct Message {
     pub body: String,
     pub date: DateTime<Local>,
     pub room: RoomId,
-    pub thumb: Option<Url>,
+    pub thumb: Option<MxcUri>,
     pub local_path_thumb: Option<PathBuf>,
-    pub url: Option<Url>,
+    pub url: Option<MxcUri>,
     pub local_path: Option<PathBuf>,
     // FIXME: This should be a required field but it is mandatory
     // to do it this way because because this struct is used both
@@ -105,71 +104,68 @@ impl From<MessageEvent<MessageEventContent>> for Message {
             extra_content: None,
         };
 
-        match msg.content {
-            MessageEventContent::Audio(content) => Self {
+        match msg.content.msgtype {
+            MessageType::Audio(content) => Self {
                 mtype: String::from("m.audio"),
                 body: content.body,
-                url: content.url.and_then(|u| Url::parse(&u).ok()),
+                url: content.url,
                 ..initial_message
             },
-            MessageEventContent::File(content) => {
-                let url = content.url.and_then(|u| Url::parse(&u).ok());
-                Self {
-                    mtype: String::from("m.file"),
-                    body: content.body,
-                    url: url.clone(),
-                    thumb: content
-                        .info
-                        .and_then(|c_info| Url::parse(&c_info.thumbnail_url?).ok())
-                        .or(url),
-                    ..initial_message
-                }
-            }
-            MessageEventContent::Image(content) => {
-                let url = content.url.and_then(|u| Url::parse(&u).ok());
-                Self {
-                    mtype: String::from("m.image"),
-                    body: content.body,
-                    url: url.clone(),
-                    thumb: content
-                        .info
-                        .and_then(|c_info| Url::parse(&c_info.thumbnail_url?).ok())
-                        .or(url),
-                    ..initial_message
-                }
-            }
-            MessageEventContent::Video(content) => {
-                let url = content.url.and_then(|u| Url::parse(&u).ok());
-                Self {
-                    mtype: String::from("m.video"),
-                    body: content.body,
-                    url: url.clone(),
-                    thumb: content
-                        .info
-                        .and_then(|c_info| Url::parse(&c_info.thumbnail_url?).ok())
-                        .or(url),
-                    ..initial_message
-                }
-            }
-            MessageEventContent::Text(content) => {
+            MessageType::File(content) => Self {
+                mtype: String::from("m.file"),
+                body: content.body,
+                url: content.url.clone(),
+                thumb: content
+                    .info
+                    .map(|i| i.thumbnail_url.filter(|u| u.is_valid()))
+                    .flatten()
+                    .or(content.url),
+                ..initial_message
+            },
+            MessageType::Image(content) => Self {
+                mtype: String::from("m.image"),
+                body: content.body,
+                url: content.url.clone(),
+                thumb: content
+                    .info
+                    .map(|i| i.thumbnail_url.filter(|u| u.is_valid()))
+                    .flatten()
+                    .or(content.url),
+                ..initial_message
+            },
+            MessageType::Video(content) => Self {
+                mtype: String::from("m.video"),
+                body: content.body,
+                url: content.url.clone(),
+                thumb: content
+                    .info
+                    .map(|i| i.thumbnail_url.filter(|u| u.is_valid()))
+                    .flatten()
+                    .or(content.url),
+                ..initial_message
+            },
+            MessageType::Text(content) => {
                 let (in_reply_to, replace) =
-                    content.relates_to.map_or(Default::default(), |r| match r {
-                        Relation::Replacement(rep) => (None, Some(rep.event_id)),
-                        Relation::Reply { in_reply_to } => (Some(in_reply_to.event_id), None),
-                        _ => (None, None),
-                    });
-                let (body, formatted, in_reply_to) = content
+                    msg.content
+                        .relates_to
+                        .map_or(Default::default(), |r| match r {
+                            Relation::Replacement(rep) => (None, Some(rep.event_id)),
+                            Relation::Reply { in_reply_to } => (Some(in_reply_to.event_id), None),
+                            _ => (None, None),
+                        });
+                let (body, formatted, in_reply_to) = msg
+                    .content
                     .new_content
                     .and_then(|nc| {
                         // FIXME: this could go wrong if a text message wasn't replaced with a text
                         // message.
-                        if let MessageEventContent::Text(nc) = *nc {
+                        if let MessageType::Text(c) = nc.msgtype {
                             let in_reply_to = nc.relates_to.and_then(|r| match r {
                                 Relation::Reply { in_reply_to } => Some(in_reply_to.event_id),
                                 _ => None,
                             });
 
-                            Some((nc.body, nc.formatted, in_reply_to))
+                            Some((c.body, c.formatted, in_reply_to))
                         } else {
                             None
                         }
@@ -189,7 +185,7 @@ impl From<MessageEvent<MessageEventContent>> for Message {
                     ..initial_message
                 }
             }
-            MessageEventContent::Emote(content) => {
+            MessageType::Emote(content) => {
                 let (formatted_body, format): (Option<String>, Option<String>) =
                     content.formatted.map_or((None, None), |f| {
                         (Some(f.body), Some(f.format.as_str().into()))
@@ -202,30 +198,33 @@ impl From<MessageEvent<MessageEventContent>> for Message {
                     ..initial_message
                 }
             }
-            MessageEventContent::Location(content) => Self {
+            MessageType::Location(content) => Self {
                 mtype: String::from("m.location"),
                 body: content.body,
                 ..initial_message
             },
-            MessageEventContent::Notice(content) => {
+            MessageType::Notice(content) => {
                 let (in_reply_to, replace) =
-                    content.relates_to.map_or(Default::default(), |r| match r {
-                        Relation::Replacement(rep) => (None, Some(rep.event_id)),
-                        Relation::Reply { in_reply_to } => (Some(in_reply_to.event_id), None),
-                        _ => (None, None),
-                    });
-                let (body, formatted, in_reply_to) = content
+                    msg.content
+                        .relates_to
+                        .map_or(Default::default(), |r| match r {
+                            Relation::Replacement(rep) => (None, Some(rep.event_id)),
+                            Relation::Reply { in_reply_to } => (Some(in_reply_to.event_id), None),
+                            _ => (None, None),
+                        });
+                let (body, formatted, in_reply_to) = msg
+                    .content
                     .new_content
                     .and_then(|nc| {
                         // FIXME: this could go wrong if a notice message wasn't replaced with a
                         // notice message.
-                        if let MessageEventContent::Notice(nc) = *nc {
+                        if let MessageType::Notice(c) = nc.msgtype {
                             let in_reply_to = nc.relates_to.and_then(|r| match r {
                                 Relation::Reply { in_reply_to } => Some(in_reply_to.event_id),
                                 _ => None,
                             });
 
-                            Some((nc.body, nc.formatted, in_reply_to))
+                            Some((c.body, c.formatted, in_reply_to))
                         } else {
                             None
                         }
@@ -245,7 +244,7 @@ impl From<MessageEvent<MessageEventContent>> for Message {
                     ..initial_message
                 }
             }
-            MessageEventContent::ServerNotice(content) => Self {
+            MessageType::ServerNotice(content) => Self {
                 mtype: String::from("m.server_notice"),
                 body: content.body,
                 ..initial_message
@@ -287,7 +286,6 @@ impl From<RedactedMessageEvent<RedactedMessageEventContent>> for Message {
 impl From<MessageEvent<StickerEventContent>> for Message {
     fn from(msg: MessageEvent<StickerEventContent>) -> Self {
         let source = serde_json::to_string_pretty(&msg).ok();
-        let url = Url::parse(&msg.content.url).ok();
 
         Self {
             sender: msg.sender,
@@ -298,14 +296,14 @@ impl From<MessageEvent<StickerEventContent>> for Message {
             id: Some(msg.event_id),
             mtype: String::from(msg.content.event_type()),
             body: msg.content.body,
-            url: url.clone(),
+            url: Some(msg.content.url.clone()),
             local_path: None,
             thumb: msg
                 .content
                 .info
                 .thumbnail_url
-                .and_then(|thumb| Url::parse(&thumb).ok())
-                .or(url),
+                .filter(|u| u.is_valid())
+                .or(Some(msg.content.url)),
             local_path_thumb: None,
             formatted_body: None,
             format: None,

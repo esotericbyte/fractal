@@ -696,7 +696,6 @@ fn build_room_msg_image(session_client: MatrixClient, msg: &Message) -> BodyAndT
         .msg
         .thumb
         .clone()
-        .filter(|m| m.scheme() == "mxc" || m.scheme().starts_with("http"))
         .or_else(|| msg.msg.url.clone())
         .map(Either::Left)
         .or_else(|| Some(Either::Right(msg.msg.local_path.clone()?)));

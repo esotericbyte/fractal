@@ -2,15 +2,15 @@
 #[macro_use]
 extern crate glib;
 
+#[macro_use]
+mod util;
 mod api;
 mod backend;
+mod cache;
 mod client;
 mod config;
 mod error;
 mod globals;
-#[macro_use]
-mod util;
-mod cache;
 mod model;
 mod passwd;
 mod ui;

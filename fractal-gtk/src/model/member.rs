@@ -1,17 +1,15 @@
 use either::Either;
-use matrix_sdk::api::r0::membership::joined_members::RoomMember;
 use matrix_sdk::api::r0::user_directory::search_users::User;
 use matrix_sdk::identifiers::UserId;
+use matrix_sdk::{api::r0::membership::joined_members::RoomMember, identifiers::MxcUri};
 use std::collections::HashMap;
-use std::convert::TryFrom;
 use std::path::PathBuf;
-use url::{ParseError as UrlError, Url};
 
 #[derive(Debug, Clone)]
 pub struct Member {
     pub uid: UserId,
     pub alias: Option<String>,
-    pub avatar: Option<Either<Url, PathBuf>>,
+    pub avatar: Option<Either<MxcUri, PathBuf>>,
 }
 
 impl Member {
@@ -31,37 +29,23 @@ impl PartialEq for Member {
     }
 }
 
-impl TryFrom<User> for Member {
-    type Error = UrlError;
-
-    fn try_from(user: User) -> Result<Self, Self::Error> {
-        Ok(Self {
+impl From<User> for Member {
+    fn from(user: User) -> Self {
+        Self {
             uid: user.user_id,
             alias: user.display_name,
-            avatar: user
-                .avatar_url
-                .filter(|a| !a.is_empty())
-                .map(|url| Url::parse(&url))
-                .transpose()?
-                .map(Either::Left),
-        })
+            avatar: user.avatar_url.map(Either::Left),
+        }
     }
 }
 
-impl TryFrom<(UserId, RoomMember)> for Member {
-    type Error = UrlError;
-
-    fn try_from((uid, roommember): (UserId, RoomMember)) -> Result<Self, Self::Error> {
-        Ok(Member {
+impl From<(UserId, RoomMember)> for Member {
+    fn from((uid, roommember): (UserId, RoomMember)) -> Self {
+        Self {
             uid,
             alias: roommember.display_name,
-            avatar: roommember
-                .avatar_url
-                .filter(|url| !url.is_empty())
-                .map(|url| Url::parse(&url))
-                .transpose()?
-                .map(Either::Left),
-        })
+            avatar: roommember.avatar_url.map(Either::Left),
+        }
     }
 }
 

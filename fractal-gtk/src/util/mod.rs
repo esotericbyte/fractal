@@ -81,6 +81,15 @@ macro_rules! unwrap_or_unit_return {
     };
 }
 
+macro_rules! unwrap_or_notfound_return {
+    ($x:expr, $msg:expr) => {
+        match $x {
+            Some(a) => a,
+            None => return Err(::std::io::Error::new(::std::io::ErrorKind::NotFound, $msg).into()),
+        }
+    };
+}
+
 pub trait ResultExpectLog {
     fn expect_log(&self, log: &str);
 }

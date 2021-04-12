@@ -40,7 +40,7 @@ use std::ops::Deref;
 use std::path::PathBuf;
 use std::rc::Rc;
 
-use matrix_sdk::Client as MatrixClient;
+use matrix_sdk::{identifiers::MxcUri, Client as MatrixClient};
 use url::Url;
 
 use crate::app::RUNTIME;
@@ -53,7 +53,7 @@ pub trait PlayerExt {
     fn initialize_stream(
         player: Rc<Self>,
         session_client: MatrixClient,
-        media_url: Url,
+        media_url: MxcUri,
         bx: gtk::Box,
         start_playing: bool,
     );
@@ -499,7 +499,7 @@ impl<T: MediaPlayer + 'static> PlayerExt for T {
     fn initialize_stream(
         player: Rc<Self>,
         session_client: MatrixClient,
-        media_url: Url,
+        media_url: MxcUri,
         bx: gtk::Box,
         start_playing: bool,
     ) {

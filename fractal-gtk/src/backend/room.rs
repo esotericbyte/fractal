@@ -3,16 +3,15 @@ use serde_json::json;
 
 use matrix_sdk::{
     api::error::ErrorKind as RumaErrorKind,
-    identifiers::{EventId, RoomId, RoomIdOrAliasId, UserId},
+    identifiers::{EventId, MxcUri, RoomId, RoomIdOrAliasId, UserId},
     Client as MatrixClient, Error as MatrixError, FromHttpResponseError, HttpError, ServerError,
 };
 use serde::Serialize;
 use std::io::Error as IoError;
 use std::path::Path;
-use url::{ParseError as UrlError, Url};
+use url::ParseError as UrlError;
 
 use std::convert::{TryFrom, TryInto};
-use std::time::Duration;
 
 use crate::globals;
 
@@ -42,10 +41,9 @@ use matrix_sdk::api::r0::room::create_room::Request as CreateRoomRequest;
 use matrix_sdk::api::r0::room::create_room::RoomPreset;
 use matrix_sdk::api::r0::room::Visibility;
 use matrix_sdk::api::r0::state::get_state_events_for_key::Request as GetStateEventForKeyRequest;
-use matrix_sdk::api::r0::state::send_state_event_for_key::Request as SendStateEventForKeyRequest;
+use matrix_sdk::api::r0::state::send_state_event::Request as SendStateEventForKeyRequest;
 use matrix_sdk::api::r0::tag::create_tag::Request as CreateTagRequest;
 use matrix_sdk::api::r0::tag::delete_tag::Request as DeleteTagRequest;
-use matrix_sdk::api::r0::typing::create_typing_event::Typing;
 use matrix_sdk::assign;
 use matrix_sdk::events::room::avatar::AvatarEventContent;
 use matrix_sdk::events::room::history_visibility::HistoryVisibility;
@@ -154,7 +152,7 @@ impl HandleError for RoomAvatarError {}
 pub async fn get_room_avatar(
     session_client: MatrixClient,
     room_id: RoomId,
-) -> Result<(RoomId, Option<Url>), RoomAvatarError> {
+) -> Result<(RoomId, Option<MxcUri>), RoomAvatarError> {
     let request = GetStateEventForKeyRequest::new(&room_id, EventType::RoomAvatar, "");
 
     let response = match session_client.send(request, None).await {
@@ -166,7 +164,7 @@ pub async fn get_room_avatar(
     let avatar = if let Some(res) = response {
         serde_json::to_value(&res.content)?["url"]
             .as_str()
-            .and_then(|s| Url::parse(s).ok())
+            .and_then(|s| MxcUri::try_from(s).ok())
     } else {
         None
     };
@@ -213,11 +211,7 @@ pub async fn get_room_members(
     let request = JoinedMembersRequest::new(&room_id);
     let response = session_client.send(request, None).await?;
 
-    let ms = response
-        .joined
-        .into_iter()
-        .map(Member::try_from)
-        .collect::<Result<_, UrlError>>()?;
+    let ms = response.joined.into_iter().map(Into::into).collect();
 
     Ok((room_id, ms))
 }
@@ -254,7 +248,11 @@ pub async fn get_room_messages(
         })),
     });
 
-    let response = session_client.room_messages(request).await?;
+    let room = unwrap_or_notfound_return!(
+        session_client.get_room(&room_id),
+        format!("Could not find room: {}", room_id)
+    );
+    let response = room.messages(request).await?;
 
     let prev_batch = response.end;
     let list: Vec<Message> = response
@@ -365,9 +363,9 @@ pub async fn send_msg(session_client: MatrixClient, msg: Message) -> Result<Even
 #[derive(Debug)]
 pub struct SendTypingError(MatrixError);
 
-impl From<MatrixError> for SendTypingError {
-    fn from(err: MatrixError) -> Self {
-        Self(err)
+impl<T: Into<MatrixError>> From<T> for SendTypingError {
+    fn from(err: T) -> Self {
+        Self(err.into())
     }
 }
 
@@ -377,9 +375,11 @@ pub async fn send_typing(
     session_client: MatrixClient,
     room_id: &RoomId,
 ) -> Result<(), SendTypingError> {
-    session_client
-        .typing_notice(room_id, Typing::Yes(Duration::from_secs(4)))
-        .await?;
+    let room = unwrap_or_notfound_return!(
+        session_client.get_joined_room(room_id),
+        format!("Could not find room: {}", room_id)
+    );
+    room.typing_notice(true).await?;
 
     Ok(())
 }
@@ -459,9 +459,9 @@ pub async fn join_room(
 #[derive(Debug)]
 pub struct LeaveRoomError(MatrixError);
 
-impl From<MatrixError> for LeaveRoomError {
-    fn from(err: MatrixError) -> Self {
-        Self(err)
+impl<T: Into<MatrixError>> From<T> for LeaveRoomError {
+    fn from(err: T) -> Self {
+        Self(err.into())
     }
 }
 
@@ -471,7 +471,11 @@ pub async fn leave_room(
     session_client: MatrixClient,
     room_id: &RoomId,
 ) -> Result<(), LeaveRoomError> {
-    session_client.leave_room(room_id).await?;
+    let room = unwrap_or_notfound_return!(
+        session_client.get_joined_room(room_id),
+        format!("Could not find room: {}", room_id)
+    );
+    room.leave().await?;
 
     Ok(())
 }
@@ -479,9 +483,9 @@ pub async fn leave_room(
 #[derive(Debug)]
 pub struct MarkedAsReadError(MatrixError);
 
-impl From<MatrixError> for MarkedAsReadError {
-    fn from(err: MatrixError) -> Self {
-        Self(err)
+impl<T: Into<MatrixError>> From<T> for MarkedAsReadError {
+    fn from(err: T) -> Self {
+        Self(err.into())
     }
 }
 
@@ -492,9 +496,11 @@ pub async fn mark_as_read(
     room_id: RoomId,
     event_id: EventId,
 ) -> Result<(RoomId, EventId), MarkedAsReadError> {
-    session_client
-        .read_marker(&room_id, &event_id, Some(&event_id))
-        .await?;
+    let room = unwrap_or_notfound_return!(
+        session_client.get_joined_room(&room_id),
+        format!("Could not find room: {}", room_id)
+    );
+    room.read_marker(&event_id, Some(&event_id)).await?;
 
     Ok((room_id, event_id))
 }
@@ -841,9 +847,9 @@ pub async fn add_to_fav(
 #[derive(Debug)]
 pub struct InviteError(MatrixError);
 
-impl From<MatrixError> for InviteError {
-    fn from(err: MatrixError) -> Self {
-        Self(err)
+impl<T: Into<MatrixError>> From<T> for InviteError {
+    fn from(err: T) -> Self {
+        Self(err.into())
     }
 }
 
@@ -854,7 +860,11 @@ pub async fn invite(
     room_id: &RoomId,
     user_id: &UserId,
 ) -> Result<(), InviteError> {
-    session_client.invite_user_by_id(room_id, user_id).await?;
+    let room = unwrap_or_notfound_return!(
+        session_client.get_joined_room(room_id),
+        format!("Could not find room: {}", room_id)
+    );
+    room.invite_user_by_id(user_id).await?;
 
     Ok(())
 }

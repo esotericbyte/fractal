@@ -616,7 +616,7 @@ async fn attach_file(session_client: MatrixClient, mut msg: Message) -> Result<(
     let thumb_url = extra_content.clone().and_then(|c| c.info.thumbnail_url);
 
     match (msg.url.clone(), msg.local_path.as_ref(), thumb_url) {
-        (Some(url), _, Some(thumb)) if url.scheme() == "mxc" && thumb.scheme() == "mxc" => {
+        (Some(_), _, Some(_)) => {
             send_msg_and_manage(session_client, msg).await;
 
             Ok(())
@@ -625,7 +625,7 @@ async fn attach_file(session_client: MatrixClient, mut msg: Message) -> Result<(
             if let Some(ref local_path_thumb) = msg.local_path_thumb {
                 let response = room::upload_file(session_client.clone(), local_path_thumb)
                     .await
-                    .and_then(|response| Url::parse(&response.content_uri).map_err(Into::into));
+                    .map(|response| response.content_uri);
 
                 match response {
                     Ok(thumb_uri) => {
@@ -648,7 +648,7 @@ async fn attach_file(session_client: MatrixClient, mut msg: Message) -> Result<(
             let query = room::upload_file(session_client.clone(), &local_path)
                 .await
                 .and_then(|response| {
-                    msg.url = Some(Url::parse(&response.content_uri)?);
+                    msg.url = Some(response.content_uri);
                     RUNTIME.spawn(send_msg_and_manage(session_client, msg.clone()));
 
                     Ok(msg)

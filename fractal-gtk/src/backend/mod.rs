@@ -1,16 +1,14 @@
 use lazy_static::lazy_static;
 use log::error;
-use matrix_sdk::identifiers::{EventId, RoomId, ServerName};
+use matrix_sdk::identifiers::{Error as IdentifierError, EventId, MxcUri, RoomId};
 use matrix_sdk::{
     api::{error::ErrorKind as RumaErrorKind, Error as RumaClientError},
     Client as MatrixClient, Error as MatrixError, FromHttpResponseError, HttpError, ServerError,
 };
 use regex::Regex;
-use std::convert::TryFrom;
 use std::fmt::Debug;
 use std::io::Error as IoError;
 use std::path::PathBuf;
-use url::Url;
 
 use crate::client::Client;
 use crate::util::cache_dir_path;
@@ -68,7 +66,6 @@ pub async fn get_prev_batch_from(
 
 #[derive(Debug)]
 pub enum MediaError {
-    MalformedMxcUrl,
     Io(IoError),
     Matrix(MatrixError),
 }
@@ -89,30 +86,13 @@ impl HandleError for MediaError {}
 
 pub async fn dw_media(
     session_client: MatrixClient,
-    mxc: &Url,
+    mxc: &MxcUri,
     media_type: ContentType,
     dest: Option<PathBuf>,
 ) -> Result<PathBuf, MediaError> {
-    if mxc.scheme() != "mxc" {
-        return Err(MediaError::MalformedMxcUrl);
+    if !mxc.is_valid() {
+        return Err(MatrixError::from(IdentifierError::InvalidMxcUri).into());
     }
-
-    let server_name = mxc
-        .host()
-        .as_ref()
-        .map(ToString::to_string)
-        .and_then(|host| {
-            <&ServerName>::try_from(host.as_str())
-                .map(ToOwned::to_owned)
-                .ok()
-        })
-        .ok_or(MediaError::MalformedMxcUrl)?;
-
-    let media_id = mxc
-        .path_segments()
-        .and_then(|mut ps| ps.next())
-        .filter(|s| !s.is_empty())
-        .ok_or(MediaError::MalformedMxcUrl)?;
 
     let default_fname = || {
         let dir = if media_type.is_thumbnail() {
@@ -120,7 +100,7 @@ pub async fn dw_media(
         } else {
             "medias"
         };
-        cache_dir_path(Some(dir), &media_id)
+        cache_dir_path(Some(dir), mxc.media_id().unwrap())
     };
     let fname = dest.clone().map_or_else(default_fname, Ok)?;
 
@@ -137,18 +117,17 @@ pub async fn dw_media(
     }
 
     let media = if let ContentType::Thumbnail(width, height) = media_type {
-        let request = assign!(GetContentThumbnailRequest::new(
-                &media_id,
-                &server_name,
+        let request = assign!(GetContentThumbnailRequest::from_url(
+                mxc,
                 width.into(),
                 height.into(),
-            ), {
+            ).unwrap(), {
             method: Some(Method::Crop),
         });
 
         session_client.send(request, None).await?.file
     } else {
-        let request = GetContentRequest::new(&media_id, &server_name);
+        let request = GetContentRequest::from_url(mxc).unwrap();
         session_client.send(request, None).await?.file
     };
 

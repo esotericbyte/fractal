@@ -1,12 +1,11 @@
 use crate::backend::room;
 use crate::util::i18n::{i18n, i18n_k, ni18n_f};
 use log::{error, warn};
-use matrix_sdk::events::EventType;
 use matrix_sdk::identifiers::RoomId;
+use matrix_sdk::{events::EventType, identifiers::MxcUri};
 use std::convert::TryInto;
 use std::fs::remove_file;
 use std::os::unix::fs;
-use url::Url;
 
 use gtk::prelude::*;
 
@@ -442,7 +441,7 @@ impl AppOp {
         }
     }
 
-    pub fn set_room_avatar(&mut self, room_id: RoomId, avatar: Option<Url>) {
+    pub fn set_room_avatar(&mut self, room_id: RoomId, avatar: Option<MxcUri>) {
         let login_data = unwrap_or_unit_return!(self.login_data.clone());
         if avatar.is_none() {
             if let Ok(dest) = cache_dir_path(None, &room_id.to_string()) {

@@ -15,9 +15,8 @@ use glib::source::Continue;
 use gtk::prelude::*;
 use gtk::Overlay;
 use libhandy::HeaderBarExt;
-use matrix_sdk::identifiers::UserId;
+use matrix_sdk::identifiers::{MxcUri, UserId};
 use matrix_sdk::Client as MatrixClient;
-use url::Url;
 
 use crate::model::{message::Message, room::Room};
 
@@ -343,7 +342,7 @@ impl Data {
         self.set_nav_btn_visibility();
     }
 
-    fn create_video_widget(&self, session_client: MatrixClient, url: Url) -> VideoWidget {
+    fn create_video_widget(&self, session_client: MatrixClient, url: MxcUri) -> VideoWidget {
         let with_controls = true;
         let player = VideoPlayerWidget::new(with_controls);
         let bx = gtk::Box::new(gtk::Orientation::Vertical, 0);

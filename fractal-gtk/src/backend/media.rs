@@ -1,10 +1,9 @@
 use super::MediaError;
 use crate::globals;
-use matrix_sdk::identifiers::{EventId, RoomId};
+use matrix_sdk::identifiers::{EventId, MxcUri, RoomId};
 use matrix_sdk::{Client as MatrixClient, Error as MatrixError};
 use std::convert::TryInto;
 use std::path::PathBuf;
-use url::Url;
 
 use crate::model::message::Message;
 use matrix_sdk::api::r0::filter::{RoomEventFilter, UrlFilter};
@@ -16,7 +15,7 @@ use super::{dw_media, get_prev_batch_from, ContentType};
 pub type MediaResult = Result<PathBuf, MediaError>;
 pub type MediaList = (Vec<Message>, String);
 
-pub async fn get_thumb(session_client: MatrixClient, media: &Url) -> MediaResult {
+pub async fn get_thumb(session_client: MatrixClient, media: &MxcUri) -> MediaResult {
     dw_media(
         session_client,
         media,
@@ -26,7 +25,7 @@ pub async fn get_thumb(session_client: MatrixClient, media: &Url) -> MediaResult
     .await
 }
 
-pub async fn get_media(session_client: MatrixClient, media: &Url) -> MediaResult {
+pub async fn get_media(session_client: MatrixClient, media: &MxcUri) -> MediaResult {
     dw_media(session_client, media, ContentType::Download, None).await
 }
 
@@ -74,7 +73,11 @@ async fn get_room_media_list(
         })),
     });
 
-    let response = session_client.room_messages(request).await?;
+    let room = unwrap_or_notfound_return!(
+        session_client.get_room(room_id),
+        format!("Could not find room: {}", room_id)
+    );
+    let response = room.messages(request).await?;
 
     let prev_batch = response.end.unwrap_or_default();
 

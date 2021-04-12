@@ -79,5 +79,5 @@ features = ["serde"]
 
 [dependencies.matrix-sdk]
 git = "https://github.com/matrix-org/matrix-rust-sdk.git"
-rev = "e437aea01213338d7f11787411a025b6133efcff"
+rev = "ebcb2024d14614b8c984c5b95de5df04eec7933b"
 features = ["unstable-synapse-quirks", "socks"]
