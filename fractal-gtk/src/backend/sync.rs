@@ -64,43 +64,39 @@ pub async fn sync(
     since: Option<String>,
     number_tries: u32,
 ) -> Result<SyncResponse, SyncError> {
-    let initial = since.is_none();
     let timeline_not_types = [String::from("m.call.*")];
     let timeline_types = [String::from("m.room.message"), String::from("m.sticker")];
     let state_types = [String::from("m.room.*")];
-    let sync_settings = if !initial {
-        SyncSettings::new().timeout(Duration::from_secs(30))
-    } else {
-        // Don't filter event fields, it breaks deserialization.
-        // Clearly the Matrix API is very static-typing-unfriendly right now.
-        let filter = assign!(FilterDefinition::empty(), {
-            presence: assign!(EventFilter::empty(), {
+
+    // Don't filter event fields, it breaks deserialization.
+    // Clearly the Matrix API is very static-typing-unfriendly right now.
+    let filter = assign!(FilterDefinition::empty(), {
+        presence: assign!(EventFilter::empty(), {
+            types: Some(&[]),
+        }),
+        room: assign!(RoomFilter::empty(), {
+            timeline: assign!(RoomEventFilter::empty(), {
+                not_types: &timeline_not_types,
+                limit: Some(globals::PAGE_LIMIT.into()),
+                types: Some(&timeline_types),
+            }),
+            ephemeral: assign!(RoomEventFilter::empty(), {
                 types: Some(&[]),
             }),
-            room: assign!(RoomFilter::empty(), {
-                timeline: assign!(RoomEventFilter::empty(), {
-                    not_types: &timeline_not_types,
-                    limit: Some(globals::PAGE_LIMIT.into()),
-                    types: Some(&timeline_types),
-                }),
-                ephemeral: assign!(RoomEventFilter::empty(), {
-                    types: Some(&[]),
-                }),
-                state: assign!(RoomEventFilter::empty(), {
-                    types: Some(&state_types),
-                    lazy_load_options: LazyLoadOptions::Enabled {
-                        include_redundant_members: false,
-                    },
-                }),
+            state: assign!(RoomEventFilter::empty(), {
+                types: Some(&state_types),
+                lazy_load_options: LazyLoadOptions::Enabled {
+                    include_redundant_members: false,
+                },
             }),
-        });
+        }),
+    });
 
-        SyncSettings::new().filter(Filter::FilterDefinition(filter))
-    };
+    let sync_settings = SyncSettings::new().filter(Filter::FilterDefinition(filter));
 
     let sync_settings = match since.clone() {
         Some(sync_token) => sync_settings.token(sync_token),
-        None => sync_settings,
+        None => sync_settings.timeout(Duration::from_secs(30)),
     };
 
     match session_client.sync_once(sync_settings).await {
