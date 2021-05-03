@@ -1,24 +1,24 @@
 # Brazilian Portuguese translation for fractal.
-# Copyright (C) 2020 fractal's COPYRIGHT HOLDER
+# Copyright (C) 2021 fractal's COPYRIGHT HOLDER
 # This file is distributed under the same license as the fractal package.
 # Bruno Lopes da Silva <brunolopesbldsb@gmail.com>, 2018.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2018-2020.
 # Enrico Nicoletto <liverig@gmail.com>, 2020, 2021.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2018-2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: fractal master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/fractal/issues\n"
-"POT-Creation-Date: 2021-02-05 12:39+0000\n"
-"PO-Revision-Date: 2021-02-05 14:38-0300\n"
-"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
+"POT-Creation-Date: 2021-02-05 17:40+0000\n"
+"PO-Revision-Date: 2021-05-03 07:12-0300\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.4.2\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"X-Generator: Gtranslator 40.0\n"
 
 #: fractal-gtk/res/gtk/help-overlay.ui:13
 msgctxt "shortcut window"
@@ -281,7 +281,7 @@ msgstr "Entrar na sala"
 
 #: fractal-gtk/res/ui/add_room_menu.ui:18
 msgid "New Room"
-msgstr "nova sala"
+msgstr "Nova sala"
 
 #: fractal-gtk/res/ui/add_room_menu.ui:22
 msgid "New Direct Chat"
@@ -897,12 +897,12 @@ msgstr "© 2017–2020 Daniel García Moreno, et al."
 msgid "Learn more about Fractal"
 msgstr "Aprenda mais sobre o Fractal"
 
-# Outras equipes de tradução parecem não estar colocando e-mail e ano.
 #: fractal-gtk/src/ui/about.rs:22
 msgid "translator-credits"
 msgstr ""
-"Rafael Fontenelle\n"
-"Bruno Lopes da Silva"
+"Bruno Lopes da Silva\n"
+"Enrico Nicoletto\n"
+"Rafael Fontenelle"
 
 #: fractal-gtk/src/ui/about.rs:37
 msgid "Name by"
