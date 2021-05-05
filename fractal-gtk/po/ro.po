@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fractal gnome-3-30\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/fractal/issues\n"
-"POT-Creation-Date: 2021-01-04 17:18+0000\n"
-"PO-Revision-Date: 2021-01-07 15:58+0200\n"
+"POT-Creation-Date: 2021-02-05 12:39+0000\n"
+"PO-Revision-Date: 2021-05-05 13:41+0200\n"
 "Last-Translator: Florentina Mușat <florentina.musat.28@gmail.com>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -185,7 +185,7 @@ msgid "Account Settings"
 msgstr "Configurări de cont"
 
 #: fractal-gtk/res/ui/account_settings.ui:30
-#: fractal-gtk/res/ui/main_window.ui:217 fractal-gtk/res/ui/main_window.ui:487
+#: fractal-gtk/res/ui/main_window.ui:217 fractal-gtk/res/ui/main_window.ui:454
 #: fractal-gtk/res/ui/media_viewer.ui:36 fractal-gtk/res/ui/room_settings.ui:30
 msgid "Back"
 msgstr "Înapoi"
@@ -348,59 +348,59 @@ msgstr ""
 msgid "Leave room"
 msgstr "Părăsește camera"
 
-#: fractal-gtk/res/ui/login_flow.ui:47
+#: fractal-gtk/res/ui/login_flow.ui:29
 msgid "Welcome to Fractal"
 msgstr "Bine ați venit la Fractal"
 
-#: fractal-gtk/res/ui/login_flow.ui:61 fractal-gtk/res/ui/login_flow.ui:251
+#: fractal-gtk/res/ui/login_flow.ui:42 fractal-gtk/res/ui/login_flow.ui:211
 msgid "_Log In"
 msgstr "_Autentificare"
 
-#: fractal-gtk/res/ui/login_flow.ui:73
+#: fractal-gtk/res/ui/login_flow.ui:55
 msgid "_Create Account"
 msgstr "_Creează un cont"
 
-#: fractal-gtk/res/ui/login_flow.ui:97
+#: fractal-gtk/res/ui/login_flow.ui:84
 msgid "Choose Provider"
 msgstr "Alege furnizorul"
 
-#: fractal-gtk/res/ui/login_flow.ui:120
+#: fractal-gtk/res/ui/login_flow.ui:107
 msgid "_Next"
 msgstr "_Următorul"
 
-#: fractal-gtk/res/ui/login_flow.ui:158
+#: fractal-gtk/res/ui/login_flow.ui:125
 msgid "What is your Provider?"
 msgstr "Care este furnizorul?"
 
-#: fractal-gtk/res/ui/login_flow.ui:187
+#: fractal-gtk/res/ui/login_flow.ui:146
 msgid "Matrix provider domain, e.g. myserver.co"
 msgstr "Domeniul de furnizare a matricei, de ex. myserver.co"
 
-#: fractal-gtk/res/ui/login_flow.ui:203
+#: fractal-gtk/res/ui/login_flow.ui:161
 msgid "The domain may not be empty."
 msgstr "Domeniul nu poate fi gol."
 
-#: fractal-gtk/res/ui/login_flow.ui:228
+#: fractal-gtk/res/ui/login_flow.ui:188
 msgid "Log In"
 msgstr "Autentificare"
 
-#: fractal-gtk/res/ui/login_flow.ui:276
+#: fractal-gtk/res/ui/login_flow.ui:236
 msgid "_User ID"
 msgstr "ID _utilizator"
 
-#: fractal-gtk/res/ui/login_flow.ui:292
+#: fractal-gtk/res/ui/login_flow.ui:252
 msgid "_Password"
 msgstr "_Parolă"
 
-#: fractal-gtk/res/ui/login_flow.ui:324
+#: fractal-gtk/res/ui/login_flow.ui:284
 msgid "User name, email, or phone number"
 msgstr "Nume de utilizator, email, sau număr de telefon"
 
-#: fractal-gtk/res/ui/login_flow.ui:357
+#: fractal-gtk/res/ui/login_flow.ui:317
 msgid "_Forgot Password?"
 msgstr "Ați _uitat parola?"
 
-#: fractal-gtk/res/ui/login_flow.ui:375
+#: fractal-gtk/res/ui/login_flow.ui:335
 msgid "Invalid username or password"
 msgstr "Nume de utilizator sau parolă nevalidă"
 
@@ -432,19 +432,19 @@ msgstr "Căutare cameră"
 msgid "Room Menu"
 msgstr "Meniu cameră"
 
-#: fractal-gtk/res/ui/main_window.ui:362
-msgid "No room selected"
+#: fractal-gtk/res/ui/main_window.ui:349
+msgid "No Room Selected"
 msgstr "Nicio cameră selectată"
 
-#: fractal-gtk/res/ui/main_window.ui:377
-msgid "Join a room to start chatting"
-msgstr "Alăturați-vă la o cameră pentru a începe să discutați"
+#: fractal-gtk/res/ui/main_window.ui:350
+msgid "Join a room to start chatting."
+msgstr "Alăturați-vă la o cameră pentru a începe discuția."
 
-#: fractal-gtk/res/ui/main_window.ui:387
+#: fractal-gtk/res/ui/main_window.ui:354
 msgid "No room"
 msgstr "Nicio cameră"
 
-#: fractal-gtk/res/ui/main_window.ui:527
+#: fractal-gtk/res/ui/main_window.ui:494
 #: fractal-gtk/res/ui/server_chooser_menu.ui:51
 #: fractal-gtk/src/ui/connect/directory.rs:117
 msgid "Default Matrix Server"
@@ -819,7 +819,7 @@ msgstr[0] "<b>{}</b> tastează…"
 msgstr[1] "<b>{}</b> și <b>{}</b> tastează…"
 msgstr[2] "<b>{}</b> și <b>{}</b> tastează…"
 
-#: fractal-gtk/src/appop/sync.rs:26
+#: fractal-gtk/src/appop/sync.rs:24
 msgid "Syncing, this could take a while"
 msgstr "Se sincronizează, asta poate să dureze o vreme"
 
@@ -938,22 +938,22 @@ msgstr ""
 msgid "You’ve been invited to join <b>{room_name}</b>"
 msgstr "Ați fost invitat să vă alăturați <b>{room_name}</b>"
 
-#: fractal-gtk/src/ui/mod.rs:79
+#: fractal-gtk/src/ui/mod.rs:77
 msgid "You don’t have permission to post to this room"
 msgstr "Nu aveți permisiunea să postați în acest canal"
 
-#: fractal-gtk/src/ui/mod.rs:156
+#: fractal-gtk/src/ui/mod.rs:159
 msgid "OK"
 msgstr "OK"
 
-#: fractal-gtk/src/ui/room_settings.rs:268
+#: fractal-gtk/src/ui/room_settings.rs:264
 msgid "Room · {} member"
 msgid_plural "Room · {} members"
 msgstr[0] "Cameră · {} membru"
 msgstr[1] "Cameră · {} membri"
 msgstr[2] "Cameră · {} de membri"
 
-#: fractal-gtk/src/ui/room_settings.rs:703
+#: fractal-gtk/src/ui/room_settings.rs:699
 msgid "{} member"
 msgid_plural "{} members"
 msgstr[0] "{} membru"
@@ -1012,43 +1012,27 @@ msgstr "Moderator"
 msgid "Privileged"
 msgstr "Privilegiat"
 
-#: fractal-gtk/src/widgets/message.rs:83
-msgid "Uploading video."
-msgstr "Se încarcă video-ul."
-
-#: fractal-gtk/src/widgets/message.rs:88
-msgid "Uploading audio."
-msgstr "Se încarcă audio-ul."
-
-#: fractal-gtk/src/widgets/message.rs:93
-msgid "Uploading image."
-msgstr "Se încarcă imaginea."
-
-#: fractal-gtk/src/widgets/message.rs:97
-msgid "Uploading file."
-msgstr "Se încarcă fișierul."
-
-#: fractal-gtk/src/widgets/message.rs:247
+#: fractal-gtk/src/widgets/message.rs:471
 #, c-format
 msgid "Last edited %c"
 msgstr "Ultima modificare %c"
 
-#: fractal-gtk/src/widgets/message.rs:457
-#: fractal-gtk/src/widgets/message.rs:573
+#: fractal-gtk/src/widgets/message.rs:665
+#: fractal-gtk/src/widgets/message.rs:832
 msgid "Save"
 msgstr "Salvează"
 
-#: fractal-gtk/src/widgets/message.rs:587
+#: fractal-gtk/src/widgets/message.rs:847
 msgid "Open"
 msgstr "Deschide"
 
 #. Use 12h time format (AM/PM)
-#: fractal-gtk/src/widgets/message.rs:607
+#: fractal-gtk/src/widgets/message.rs:990
 msgid "%l∶%M %p"
 msgstr "%l∶%M %p"
 
 #. Use 24 time format
-#: fractal-gtk/src/widgets/message.rs:610
+#: fractal-gtk/src/widgets/message.rs:993
 msgid "%R"
 msgstr "%R"
 
@@ -1057,12 +1041,12 @@ msgid "New Messages"
 msgstr "Mesaje noi"
 
 #. Translators: This is a date format in the day divider without the year
-#: fractal-gtk/src/widgets/room_history.rs:795
+#: fractal-gtk/src/widgets/room_history.rs:798
 msgid "%B %e"
 msgstr "%B %e"
 
 #. Translators: This is a date format in the day divider with the year
-#: fractal-gtk/src/widgets/room_history.rs:798
+#: fractal-gtk/src/widgets/room_history.rs:801
 msgid "%B %e, %Y"
 msgstr "%B %e, %Y"
 
@@ -1089,6 +1073,18 @@ msgstr "Camere"
 #: fractal-gtk/src/widgets/roomlist.rs:491
 msgid "You don’t have any rooms yet"
 msgstr "Nu aveți camere încă"
+
+#~ msgid "Uploading video."
+#~ msgstr "Se încarcă video-ul."
+
+#~ msgid "Uploading audio."
+#~ msgstr "Se încarcă audio-ul."
+
+#~ msgid "Uploading image."
+#~ msgstr "Se încarcă imaginea."
+
+#~ msgid "Uploading file."
+#~ msgstr "Se încarcă fișierul."
 
 #~ msgid "Select room image file"
 #~ msgstr "Selectează fișierul imagine al camerei"
