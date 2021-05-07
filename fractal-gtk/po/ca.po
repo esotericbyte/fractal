@@ -137,7 +137,7 @@ msgstr "Si l'enviament amb markdown és actiu"
 
 #: fractal-gtk/res/org.gnome.Fractal.gschema.xml:22
 msgid "Whether support for sending markdown messages is on"
-msgstr "Si el suport per enviar missatges amb markdown està activat"
+msgstr "Si el suport per a enviar missatges amb markdown està activat"
 
 #: fractal-gtk/res/org.gnome.Fractal.gschema.xml:29
 msgid "X position of the main window on startup"
@@ -246,7 +246,7 @@ msgid ""
 "To confirm that you really want to deactivate this account type in your "
 "password:"
 msgstr ""
-"Per confirmar que realment vols desactivar aquest compte, escriu la teva "
+"Per a confirmar que realment vols desactivar aquest compte, escriu la teva "
 "contrasenya:"
 
 #: fractal-gtk/res/ui/account_settings.ui:456
@@ -346,7 +346,7 @@ msgstr "Marxa de la sala"
 
 #: fractal-gtk/res/ui/login_flow.ui:29
 msgid "Welcome to Fractal"
-msgstr "Benvingut a Fractal"
+msgstr "Us donem la benvinguda a Fractal"
 
 #: fractal-gtk/res/ui/login_flow.ui:42 fractal-gtk/res/ui/login_flow.ui:211
 msgid "_Log In"
@@ -434,7 +434,7 @@ msgstr "Cap sala seleccionada"
 
 #: fractal-gtk/res/ui/main_window.ui:350
 msgid "Join a room to start chatting."
-msgstr "Uneix-te a una sala per començar a xatejar."
+msgstr "Uneix-te a una sala per a començar a xatejar."
 
 #: fractal-gtk/res/ui/main_window.ui:354
 msgid "No room"
@@ -622,7 +622,7 @@ msgstr "Només per mencions"
 
 #: fractal-gtk/res/ui/room_settings.ui:352
 msgid "Shared Media"
-msgstr "Multimèdia compartida"
+msgstr "Elements multimèdia compartits"
 
 #: fractal-gtk/res/ui/room_settings.ui:394
 msgid "photos"
@@ -752,7 +752,7 @@ msgid ""
 "In order to add this email address, go to your inbox and follow the link you "
 "received. Once you’ve done that, click Continue."
 msgstr ""
-"Per afegir aquesta adreça de correu electrònic, aneu a la safata d'entrada i "
+"Per a afegir aquesta adreça de correu electrònic, aneu a la safata d'entrada i "
 "seguiu l'enllaç que heu rebut. Un cop hagis fet això, fes clic a continuar."
 
 #: fractal-gtk/src/appop/account.rs:348
@@ -832,7 +832,7 @@ msgstr "Error suprimint el missatge"
 
 #: fractal-gtk/src/backend/room.rs:442
 msgid "Can’t join the room, try again."
-msgstr "No es pot unir-se a la sala, torneu-ho a provar."
+msgstr "No es pot unir a la sala, torneu-ho a provar."
 
 #: fractal-gtk/src/backend/room.rs:680 fractal-gtk/src/backend/room.rs:732
 msgid "Can’t create the room, try again"
@@ -848,7 +848,7 @@ msgstr "El correu electrònic ja està en ús"
 
 #: fractal-gtk/src/backend/user.rs:143
 msgid "Please enter a valid email address."
-msgstr "Si us plau, entreu una adreça de correu electrònic vàlida."
+msgstr "Si us plau, introduïu una adreça de correu electrònic vàlida."
 
 #: fractal-gtk/src/backend/user.rs:146
 msgid "Couldn’t add the email address."
@@ -863,7 +863,7 @@ msgid ""
 "Please enter your phone number in the format: \n"
 " + your country code and your phone number."
 msgstr ""
-"Si us plau, entreu el vostre número de telèfon en el format: \n"
+"Si us plau, introduïu el vostre número de telèfon en el format: \n"
 " + el vostre codi de país i el vostre número de telèfon."
 
 #: fractal-gtk/src/backend/user.rs:191
@@ -932,7 +932,7 @@ msgstr "Has sigut convidat a unir-te la sala  <b>{room_name}</b>"
 
 #: fractal-gtk/src/ui/mod.rs:77
 msgid "You don’t have permission to post to this room"
-msgstr "No tens permís per publicar en aquesta sala"
+msgstr "No tens permís per a publicar en aquesta sala"
 
 #: fractal-gtk/src/ui/mod.rs:159
 msgid "OK"
@@ -1059,7 +1059,7 @@ msgstr "Preferits"
 #: fractal-gtk/src/widgets/roomlist.rs:486
 msgid "Drag and drop rooms here to add them to your favorites"
 msgstr ""
-"Arrossegueu i deixeu anar sales aquí per afegir-les als vostres preferits"
+"Arrossegueu i deixeu anar sales aquí per a afegir-les als vostres preferits"
 
 #: fractal-gtk/src/widgets/roomlist.rs:490
 msgid "Rooms"
