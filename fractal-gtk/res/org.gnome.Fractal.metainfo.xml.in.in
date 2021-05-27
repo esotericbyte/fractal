@@ -153,7 +153,7 @@
   <update_contact>danigm@wadobo.com</update_contact>
   <url type="homepage">https://gitlab.gnome.org/GNOME/fractal</url>
   <url type="bugtracker">https://gitlab.gnome.org/GNOME/fractal/issues/</url>
-  <url type="donation">http://www.gnome.org/friends/</url>
+  <url type="donation">https://www.gnome.org/donate/</url>
   <translation type="gettext">fractal</translation>
   <project_group>GNOME</project_group>
   <kudos>
