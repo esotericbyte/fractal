@@ -238,14 +238,14 @@ impl AppOp {
 
         if let Some(room) = self.active_room.clone() {
             if let Some(sender) = self.login_data.as_ref().map(|ld| ld.uid.clone()) {
-                let body = msg.clone();
-                let mtype = String::from("m.text");
+                let mut body = msg.clone();
+                let mtype = if msg.starts_with("/me ") {
+                    body = msg.trim_start_matches("/me ").to_owned();
+                    String::from("m.emote")
+                } else {
+                    String::from("m.text")
+                };
                 let mut m = Message::new(room, sender, body, mtype, None);
-
-                if msg.starts_with("/me ") {
-                    m.body = msg.trim_start_matches("/me ").to_owned();
-                    m.mtype = String::from("m.emote");
-                }
 
                 // Element (Riot) does not properly show emotes with Markdown;
                 // Emotes with markdown have a newline after the username
@@ -257,7 +257,13 @@ impl AppOp {
                     // Removing wrap tag: <p>..</p>\n
                     let limit = md_parsed_msg.len() - 5;
                     let trim = match (md_parsed_msg.get(0..3), md_parsed_msg.get(limit..)) {
-                        (Some(open), Some(close)) if open == "<p>" && close == "</p>\n" => true,
+                        (Some(open), Some(close)) if open == "<p>" && close == "</p>\n" => {
+                            match md_parsed_msg.get(3..limit) {
+                                // Don't trim if there's a <p> tag in the middle
+                                Some(middle) => !middle.contains("<p>"),
+                                None => true,
+                            }
+                        }
                         _ => false,
                     };
                     if trim {
