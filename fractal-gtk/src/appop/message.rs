@@ -253,25 +253,7 @@ impl AppOp {
                     let mut md_options = ComrakOptions::default();
                     md_options.hardbreaks = true;
                     let mut md_parsed_msg = markdown_to_html(&msg, &md_options);
-
-                    // Removing wrap tag: <p>..</p>\n
-                    let limit = md_parsed_msg.len() - 5;
-                    let trim = match (md_parsed_msg.get(0..3), md_parsed_msg.get(limit..)) {
-                        (Some(open), Some(close)) if open == "<p>" && close == "</p>\n" => {
-                            match md_parsed_msg.get(3..limit) {
-                                // Don't trim if there's a <p> tag in the middle
-                                Some(middle) => !middle.contains("<p>"),
-                                None => true,
-                            }
-                        }
-                        _ => false,
-                    };
-                    if trim {
-                        md_parsed_msg = md_parsed_msg
-                            .get(3..limit)
-                            .unwrap_or(&md_parsed_msg)
-                            .to_string();
-                    }
+                    md_parsed_msg = trim_p_tags(md_parsed_msg).to_owned();
 
                     if md_parsed_msg != msg {
                         m.formatted_body = Some(md_parsed_msg);
@@ -527,6 +509,20 @@ impl AppOp {
             last_viewed: is_last_viewed,
             widget: None,
         })
+    }
+}
+
+/// Trim paragraph tag from the start and end of a string if there's exactly one pair of
+/// opening and closing tags in the string
+fn trim_p_tags(md_message: &str) -> &str {
+    let limit = md_message.len().saturating_sub(5);
+    match (
+        md_message.get(0..3),
+        md_message.get(3..limit),
+        md_message.get(limit..),
+    ) {
+        (Some("<p>"), Some(middle), Some("</p>\n")) if !middle.contains("<p>") => middle,
+        _ => md_message,
     }
 }
 
