@@ -1,7 +1,7 @@
 {
     "app-id" : "org.gnome.Fractal",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "3.36",
+    "runtime-version" : "40",
     "sdk" : "org.gnome.Sdk",
     "sdk-extensions" : [
         "org.freedesktop.Sdk.Extension.rust-stable"
@@ -54,7 +54,7 @@
                 {
                     "type" : "git",
                     "url" : "https://gitlab.gnome.org/GNOME/libhandy",
-                    "tag" : "1.0.1"
+                    "tag" : "1.2.3"
                 }
             ]
         },

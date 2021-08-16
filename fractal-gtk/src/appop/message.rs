@@ -253,7 +253,7 @@ impl AppOp {
                     let mut md_options = ComrakOptions::default();
                     md_options.hardbreaks = true;
                     let mut md_parsed_msg = markdown_to_html(&msg, &md_options);
-                    md_parsed_msg = trim_p_tags(md_parsed_msg).to_owned();
+                    md_parsed_msg = trim_p_tags(&md_parsed_msg).to_owned();
 
                     if md_parsed_msg != msg {
                         m.formatted_body = Some(md_parsed_msg);
