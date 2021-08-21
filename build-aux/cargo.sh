@@ -18,4 +18,4 @@ else
         cp "$CARGO_TARGET_DIR"/release/$5 $3
 fi
 
-
+cargo clippy --manifest-path "$MESON_SOURCE_ROOT"/Cargo.toml -- -D warnings
