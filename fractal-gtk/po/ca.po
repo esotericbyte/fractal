@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/fractal/issues\n"
 "POT-Creation-Date: 2021-04-28 07:37+0000\n"
-"PO-Revision-Date: 2021-04-29 11:38+0200\n"
+"PO-Revision-Date: 2021-09-14 17:41+0200\n"
+"Last-Translator: Ícar N. S. <icar.nin@protonmail.com>\n"
 "Language-Team: \n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.1\n"
-"Last-Translator: Ícar N. S. <icar.nin@protonmail.com>\n"
-"Language: ca\n"
+"X-Generator: Poedit 3.0\n"
 
 #: fractal-gtk/res/gtk/help-overlay.ui:13
 msgctxt "shortcut window"
@@ -36,22 +36,22 @@ msgstr "Obre el menú principal"
 #: fractal-gtk/res/gtk/help-overlay.ui:32
 msgctxt "shortcut window"
 msgid "Open / close the room sidebar search"
-msgstr "Obre o tanca la cerca de la barra lateral de la sala"
+msgstr "Obre / tanca la cerca de la barra lateral de la sala"
 
 #: fractal-gtk/res/gtk/help-overlay.ui:39
 msgctxt "shortcut window"
 msgid "Open the previous room in the list"
-msgstr "Obre la sala prèvia a la llista"
+msgstr "Obre la sala anterior de la llista"
 
 #: fractal-gtk/res/gtk/help-overlay.ui:46
 msgctxt "shortcut window"
 msgid "Open the next room in the list"
-msgstr "Obre la sala següent a la llista"
+msgstr "Obre la sala següent de la llista"
 
 #: fractal-gtk/res/gtk/help-overlay.ui:53
 msgctxt "shortcut window"
 msgid "Open the previous room with unread messages in the list"
-msgstr "Obre la sala prèvia amb missatges sense llegir a la llista"
+msgstr "Obre la sala anterior amb missatges sense llegir a la llista"
 
 #: fractal-gtk/res/gtk/help-overlay.ui:60
 msgctxt "shortcut window"
@@ -66,7 +66,7 @@ msgstr "Obre la primera sala de la llista"
 #: fractal-gtk/res/gtk/help-overlay.ui:74
 msgctxt "shortcut window"
 msgid "Open the last room of the list"
-msgstr "Obre l'última habitació de la llista"
+msgstr "Obre l'última sala de la llista"
 
 #: fractal-gtk/res/gtk/help-overlay.ui:81
 msgctxt "shortcut window"
@@ -76,7 +76,7 @@ msgstr "Mostra els missatges més antics"
 #: fractal-gtk/res/gtk/help-overlay.ui:88
 msgctxt "shortcut window"
 msgid "View newer messages"
-msgstr "Mostra els missatges més nous"
+msgstr "Mostra els missatges nous"
 
 #: fractal-gtk/res/gtk/help-overlay.ui:94
 msgctxt "shortcut window"
@@ -91,7 +91,7 @@ msgstr "Surt"
 #: fractal-gtk/res/gtk/help-overlay.ui:110
 msgctxt "shortcut message"
 msgid "Composing a new message"
-msgstr "Component un missatge nou"
+msgstr "Redacció d'un missatge nou"
 
 #: fractal-gtk/res/gtk/help-overlay.ui:115
 msgctxt "shortcut message"
@@ -109,51 +109,52 @@ msgid ""
 "Fractal is a decentralized, secure messaging client for collaborative group "
 "communication."
 msgstr ""
-"Fractal és un client per comunicacions de grup col·laboratiu, "
-"descentralitzat i segur."
+"Fractal és un client de missatgeria segur descentralitzat per a la "
+"comunicació col·laborativa de grup."
 
 #: fractal-gtk/res/org.gnome.Fractal.desktop.in.in:5
 msgid "Fractal group messaging"
 msgstr "Missatgeria de grup Fractal"
 
-#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or
+#. localize the semicolons! The list MUST also end with a semicolon!
 #: fractal-gtk/res/org.gnome.Fractal.desktop.in.in:14
 msgid "Matrix;matrix.org;chat;irc;communications;talk;riot;element;"
-msgstr "Matrix;matrix.org;xat;irc;comunicacions;parla;riot;element;"
+msgstr "Matrix;matrix.org;xat;irc;comunicacions;parlar;riot;element;"
 
 #: fractal-gtk/res/org.gnome.Fractal.gschema.xml:13
 msgid "Type of password and token storage"
-msgstr "Tipus de contrasenya i emmagatzematge del testimoni"
+msgstr "Tipus de contrasenya i emmagatzematge de tokens"
 
 #: fractal-gtk/res/org.gnome.Fractal.gschema.xml:14
 msgid "Type of password and token storage, default value is: Secret Service"
 msgstr ""
-"Tipus de contrasenya i emmagatzematge del testimoni, valor per defecte és: "
-"servei secret"
+"Tipus de contrasenya i emmagatzematge de tokens, el valor per defecte és: "
+"Servei Secret"
 
 #: fractal-gtk/res/org.gnome.Fractal.gschema.xml:21
 msgid "If markdown sending is active"
-msgstr "Si l'enviament amb markdown és actiu"
+msgstr "Si l'enviament amb Markdown està actiu"
 
 #: fractal-gtk/res/org.gnome.Fractal.gschema.xml:22
 msgid "Whether support for sending markdown messages is on"
-msgstr "Si el suport per a enviar missatges amb markdown està activat"
+msgstr "Si la implementació per enviar missatges Markdown està activada"
 
 #: fractal-gtk/res/org.gnome.Fractal.gschema.xml:29
 msgid "X position of the main window on startup"
-msgstr "Posició X de la finestra principal en iniciar"
+msgstr "Posició X de la finestra principal a l'inici"
 
 #: fractal-gtk/res/org.gnome.Fractal.gschema.xml:34
 msgid "Y position of the main window on startup"
-msgstr "Posició Y de la finestra principal en iniciar"
+msgstr "Posició Y de la finestra principal a l'inici"
 
 #: fractal-gtk/res/org.gnome.Fractal.gschema.xml:39
 msgid "Width of the main window on startup"
-msgstr "Amplada de la finestra en iniciar"
+msgstr "Amplada de la finestra principal a l'inici"
 
 #: fractal-gtk/res/org.gnome.Fractal.gschema.xml:44
 msgid "Height of the main window on startup"
-msgstr "Alçada de la finestra en iniciar"
+msgstr "Alçada de la finestra principal a l'inici"
 
 #: fractal-gtk/res/org.gnome.Fractal.gschema.xml:49
 msgid "Whether the main window is maximized on startup"
@@ -161,11 +162,11 @@ msgstr "Si la finestra principal es maximitza a l'inici"
 
 #: fractal-gtk/res/org.gnome.Fractal.metainfo.xml.in.in:8
 msgid "Daniel García Moreno"
-msgstr ""
+msgstr "Daniel García Moreno"
 
 #: fractal-gtk/res/org.gnome.Fractal.metainfo.xml.in.in:9
 msgid "Matrix group messaging app"
-msgstr "Aplicació de missatgeria en grup per Matrix"
+msgstr "Aplicació de missatgeria de grup Matrix"
 
 #: fractal-gtk/res/org.gnome.Fractal.metainfo.xml.in.in:11
 msgid ""
@@ -173,24 +174,26 @@ msgid ""
 "is optimized for collaboration in large groups, such as free software "
 "projects."
 msgstr ""
-"Fractal és una aplicació de missatgeria per Matrix per a GNOME escrita en "
-"Rust. La seva interfície està optimitzada per a la col·laboració en grups "
-"grans, com ara projectes de programari lliure."
+"Fractal és una aplicació de missatgeria Matrix per a GNOME escrita en Rust. "
+"La seva interfície està optimitzada per la col·laboració en grans grups, "
+"com projectes de programari lliure."
 
-#: fractal-gtk/res/ui/account_settings.ui:14 fractal-gtk/res/ui/main_menu.ui:94
+#: fractal-gtk/res/ui/account_settings.ui:14
+#: fractal-gtk/res/ui/main_menu.ui:94
 msgid "Account Settings"
 msgstr "Configuració del compte"
 
 #: fractal-gtk/res/ui/account_settings.ui:30
 #: fractal-gtk/res/ui/main_window.ui:217 fractal-gtk/res/ui/main_window.ui:454
-#: fractal-gtk/res/ui/media_viewer.ui:36 fractal-gtk/res/ui/room_settings.ui:30
+#: fractal-gtk/res/ui/media_viewer.ui:36
+#: fractal-gtk/res/ui/room_settings.ui:30
 msgid "Back"
 msgstr "Enrere"
 
 #: fractal-gtk/res/ui/account_settings.ui:92
 msgid "Other people can find you by searching for any of these identifiers."
 msgstr ""
-"Altra gent et pot trobar buscant per qualsevol d'aquests identificadors."
+"Altres persones us poden trobar cercant qualsevol d'aquests identificadors."
 
 #: fractal-gtk/res/ui/account_settings.ui:115
 msgid "Name"
@@ -198,7 +201,7 @@ msgstr "Nom"
 
 #: fractal-gtk/res/ui/account_settings.ui:138
 msgid "Type in your name"
-msgstr "Escriu el teu nom"
+msgstr "Escriviu el vostre nom"
 
 #: fractal-gtk/res/ui/account_settings.ui:167
 msgid "Email"
@@ -218,11 +221,11 @@ msgstr "Informació avançada"
 
 #: fractal-gtk/res/ui/account_settings.ui:312
 msgid "Homeserver"
-msgstr "Servidor domèstic"
+msgstr "Servidor d'inici"
 
 #: fractal-gtk/res/ui/account_settings.ui:341
 msgid "Matrix ID"
-msgstr "ID de Matrix"
+msgstr "ID del Matrix"
 
 #: fractal-gtk/res/ui/account_settings.ui:370
 msgid "Device ID"
@@ -238,16 +241,16 @@ msgid ""
 "Deactivating your account means that you will lose all your messages, "
 "contacts, and files."
 msgstr ""
-"Desactivar el teu compte vol dir que perdràs tots els teus missatges, "
-"contactes i fitxers."
+"Desactivar el compte significa que perdreu tots els missatges, contactes i "
+"fitxers."
 
 #: fractal-gtk/res/ui/account_settings.ui:441
 msgid ""
 "To confirm that you really want to deactivate this account type in your "
 "password:"
 msgstr ""
-"Per a confirmar que realment vols desactivar aquest compte, escriu la teva "
-"contrasenya:"
+"Per confirmar que realment voleu desactivar aquest tipus de compte, "
+"escriviu la contrasenya:"
 
 #: fractal-gtk/res/ui/account_settings.ui:456
 msgid "Also erase all messages"
@@ -255,7 +258,7 @@ msgstr "Esborra també tots els missatges"
 
 #: fractal-gtk/res/ui/account_settings.ui:523
 msgid "Check your email"
-msgstr "Comprova el teu correu electrònic"
+msgstr "Comproveu el correu electrònic"
 
 #: fractal-gtk/res/ui/account_settings.ui:526
 #: fractal-gtk/res/ui/direct_chat.ui:83 fractal-gtk/res/ui/invite_user.ui:84
@@ -275,7 +278,7 @@ msgstr "Directori de la sala"
 
 #: fractal-gtk/res/ui/add_room_menu.ui:12
 msgid "Join Room"
-msgstr "Entra a la sala"
+msgstr "Uneix-te a la sala"
 
 #: fractal-gtk/res/ui/add_room_menu.ui:18
 msgid "New Room"
@@ -283,11 +286,11 @@ msgstr "Sala nova"
 
 #: fractal-gtk/res/ui/add_room_menu.ui:22
 msgid "New Direct Chat"
-msgstr "Nou xat directe"
+msgstr "Xat directe nou"
 
 #: fractal-gtk/res/ui/audio_player.ui:34 fractal-gtk/res/ui/audio_player.ui:45
 msgid "Play"
-msgstr "Juga"
+msgstr "Reprodueix"
 
 #: fractal-gtk/res/ui/direct_chat.ui:80
 msgid "New direct chat"
@@ -320,13 +323,14 @@ msgstr "ID o àlies"
 
 #: fractal-gtk/res/ui/join_room.ui:68
 msgid "Join room"
-msgstr "Unir-te a la sala"
+msgstr "Uneix-te a la sala"
 
 #: fractal-gtk/res/ui/join_room.ui:79 fractal-gtk/src/ui/directory.rs:245
 msgid "Join"
-msgstr "Unir-te"
+msgstr "Uneix-te"
 
-#: fractal-gtk/res/ui/kicked_room.ui:29 fractal-gtk/res/ui/msg_src_window.ui:32
+#: fractal-gtk/res/ui/kicked_room.ui:29
+#: fractal-gtk/res/ui/msg_src_window.ui:32
 msgid "Close"
 msgstr "Tanca"
 
@@ -338,11 +342,11 @@ msgstr "Marxar?"
 msgid ""
 "Once you leave, you won’t be able to interact with people in the room "
 "anymore."
-msgstr "Quan marxis, ja no podràs interactuar amb la gent de la sala."
+msgstr "Un cop marxeu, ja no podreu interactuar amb la gent de la sala."
 
 #: fractal-gtk/res/ui/leave_room.ui:39
 msgid "Leave room"
-msgstr "Marxa de la sala"
+msgstr "Surt de la sala"
 
 #: fractal-gtk/res/ui/login_flow.ui:29
 msgid "Welcome to Fractal"
@@ -350,7 +354,7 @@ msgstr "Us donem la benvinguda a Fractal"
 
 #: fractal-gtk/res/ui/login_flow.ui:42 fractal-gtk/res/ui/login_flow.ui:211
 msgid "_Log In"
-msgstr "_Inicia sessió"
+msgstr "_Inici de sessió"
 
 #: fractal-gtk/res/ui/login_flow.ui:55
 msgid "_Create Account"
@@ -358,7 +362,7 @@ msgstr "_Crea un compte"
 
 #: fractal-gtk/res/ui/login_flow.ui:84
 msgid "Choose Provider"
-msgstr "Escull un proveïdor"
+msgstr "Trieu el proveïdor"
 
 #: fractal-gtk/res/ui/login_flow.ui:107
 msgid "_Next"
@@ -366,19 +370,19 @@ msgstr "_Següent"
 
 #: fractal-gtk/res/ui/login_flow.ui:125
 msgid "What is your Provider?"
-msgstr "Quin és el vostre proveïdor?"
+msgstr "Quin és el teu proveïdor?"
 
 #: fractal-gtk/res/ui/login_flow.ui:146
 msgid "Matrix provider domain, e.g. myserver.co"
-msgstr "Domini del proveïdor per Matrix, per exemple, elmeuserver.cat"
+msgstr "Domini del proveïdor Matrix, p. ex., el meuservidor.cat"
 
 #: fractal-gtk/res/ui/login_flow.ui:161
 msgid "The domain may not be empty."
-msgstr "El domini podria no estar buit."
+msgstr "El domini no pot estar buit."
 
 #: fractal-gtk/res/ui/login_flow.ui:188
 msgid "Log In"
-msgstr "Inicia sessió"
+msgstr "Inici de sessió"
 
 #: fractal-gtk/res/ui/login_flow.ui:236
 msgid "_User ID"
@@ -394,7 +398,7 @@ msgstr "Nom d'usuari, correu electrònic o número de telèfon"
 
 #: fractal-gtk/res/ui/login_flow.ui:317
 msgid "_Forgot Password?"
-msgstr "_Has oblidat la contrasenya?"
+msgstr "_Heu oblidat la contrasenya?"
 
 #: fractal-gtk/res/ui/login_flow.ui:335
 msgid "Invalid username or password"
@@ -410,7 +414,7 @@ msgstr "_Dreceres de teclat"
 
 #: fractal-gtk/res/ui/main_menu.ui:129
 msgid "_About Fractal"
-msgstr "_Sobre el Fractal"
+msgstr "_Quant a Fractal"
 
 #: fractal-gtk/res/ui/main_window.ui:56
 msgid "User"
@@ -418,11 +422,11 @@ msgstr "Usuari"
 
 #: fractal-gtk/res/ui/main_window.ui:82
 msgid "Add"
-msgstr "Afegir"
+msgstr "Afegeix"
 
 #: fractal-gtk/res/ui/main_window.ui:111
 msgid "Room search"
-msgstr "Cerca de sala"
+msgstr "Cerca a la sala"
 
 #: fractal-gtk/res/ui/main_window.ui:282
 msgid "Room Menu"
@@ -434,17 +438,17 @@ msgstr "Cap sala seleccionada"
 
 #: fractal-gtk/res/ui/main_window.ui:350
 msgid "Join a room to start chatting."
-msgstr "Uneix-te a una sala per a començar a xatejar."
+msgstr "Uniu-vos a una sala per començar a xatejar."
 
 #: fractal-gtk/res/ui/main_window.ui:354
 msgid "No room"
-msgstr "Cap sala"
+msgstr "Sense sala"
 
 #: fractal-gtk/res/ui/main_window.ui:494
 #: fractal-gtk/res/ui/server_chooser_menu.ui:51
 #: fractal-gtk/src/ui/connect/directory.rs:117
 msgid "Default Matrix Server"
-msgstr "Servidor Matrix per defecte"
+msgstr "Servidor Matrix predeterminat"
 
 #: fractal-gtk/res/ui/markdown_popover.ui:23
 msgid "Markdown"
@@ -472,7 +476,7 @@ msgstr "Commuta la pantalla completa"
 
 #: fractal-gtk/res/ui/media_viewer.ui:226
 msgid "Loading more media"
-msgstr "Carregant més suports"
+msgstr "S'estan carregant més mitjans"
 
 #: fractal-gtk/res/ui/message_menu.ui:22
 msgid "Reply"
@@ -504,7 +508,7 @@ msgstr "Copia el text"
 
 #: fractal-gtk/res/ui/message_menu.ui:79
 msgid "View Source"
-msgstr "Mostra la font"
+msgstr "Visualitza la font"
 
 #: fractal-gtk/res/ui/message_menu.ui:94
 msgid "Delete Message"
@@ -536,11 +540,11 @@ msgstr "Visibilitat"
 
 #: fractal-gtk/res/ui/new_room.ui:114
 msgid "Private"
-msgstr "Privada"
+msgstr "Privat"
 
 #: fractal-gtk/res/ui/new_room.ui:125
 msgid "Public"
-msgstr "Pública"
+msgstr "Públic"
 
 #: fractal-gtk/res/ui/password_dialog.ui:22
 #: fractal-gtk/src/widgets/file_dialog.rs:12
@@ -550,7 +554,7 @@ msgstr "_Cancel·la"
 
 #: fractal-gtk/res/ui/password_dialog.ui:35
 msgid "Ch_ange"
-msgstr "C_anvia"
+msgstr "_Canvia"
 
 #: fractal-gtk/res/ui/password_dialog.ui:125
 msgid "The passwords do not match."
@@ -558,7 +562,7 @@ msgstr "Les contrasenyes no coincideixen."
 
 #: fractal-gtk/res/ui/password_dialog.ui:143
 msgid "_Verify New Password"
-msgstr "_Verifica la nova contrasenya"
+msgstr "_Verifica una contrasenya nova"
 
 #: fractal-gtk/res/ui/password_dialog.ui:160
 msgid "_New Password"
@@ -578,7 +582,7 @@ msgstr "Convida a aquesta sala"
 
 #: fractal-gtk/res/ui/room_menu.ui:18
 msgid "Leave Room"
-msgstr "Marxa de la sala"
+msgstr "Surt de la sala"
 
 #: fractal-gtk/res/ui/room_settings.ui:14
 msgid "Details"
@@ -598,11 +602,11 @@ msgstr "Afegeix un tema"
 
 #: fractal-gtk/res/ui/room_settings.ui:179
 msgid "Type in your room topic"
-msgstr "Escriu el teu tema de la sala"
+msgstr "Escriu el tema de la sala"
 
 #: fractal-gtk/res/ui/room_settings.ui:202
 msgid "No room description"
-msgstr "Cap descripció de la sala"
+msgstr "Sense descripció de la sala"
 
 #: fractal-gtk/res/ui/room_settings.ui:230
 msgid "Notifications"
@@ -614,15 +618,15 @@ msgstr "Sons de notificació"
 
 #: fractal-gtk/res/ui/room_settings.ui:290
 msgid "For all messages"
-msgstr "Per tots els missatges"
+msgstr "Per a tots els missatges"
 
 #: fractal-gtk/res/ui/room_settings.ui:322
 msgid "Only for mentions"
-msgstr "Només per mencions"
+msgstr "Només per a les mencions"
 
 #: fractal-gtk/res/ui/room_settings.ui:352
 msgid "Shared Media"
-msgstr "Elements multimèdia compartits"
+msgstr "Suports compartits"
 
 #: fractal-gtk/res/ui/room_settings.ui:394
 msgid "photos"
@@ -638,7 +642,7 @@ msgstr "documents"
 
 #: fractal-gtk/res/ui/room_settings.ui:475
 msgid "New members can see"
-msgstr "Membres nous poden veure"
+msgstr "Els membres nous poden veure"
 
 #: fractal-gtk/res/ui/room_settings.ui:507
 msgid "All room history"
@@ -646,7 +650,7 @@ msgstr "Tot l'historial de la sala"
 
 #: fractal-gtk/res/ui/room_settings.ui:539
 msgid "History after they were invited"
-msgstr "L'historial després de ser convidats"
+msgstr "L'historial després de ser convidat"
 
 #: fractal-gtk/res/ui/room_settings.ui:569
 msgid "Room Visibility"
@@ -658,15 +662,15 @@ msgstr "Permet convidats"
 
 #: fractal-gtk/res/ui/room_settings.ui:635
 msgid "Allow joining without invite"
-msgstr "Permet unir-se sense invitació"
+msgstr "Permet unir-se sense convidar"
 
 #: fractal-gtk/res/ui/room_settings.ui:666
 msgid "Publish in room directory"
-msgstr "Publica en el directori de sales"
+msgstr "Publica al directori de sales"
 
 #: fractal-gtk/res/ui/room_settings.ui:695
 msgid "Join addresses"
-msgstr "Adreces d'unió"
+msgstr "Uneix les adreces"
 
 #: fractal-gtk/res/ui/room_settings.ui:749
 msgid "members"
@@ -682,27 +686,27 @@ msgstr "Cerca membres de la sala"
 
 #: fractal-gtk/res/ui/scroll_widget.ui:63
 msgid "Scroll to bottom"
-msgstr "Desplaça't a la part inferior"
+msgstr "Desplaça a baix"
 
 #: fractal-gtk/res/ui/server_chooser_menu.ui:30
 msgid "Show rooms from:"
-msgstr "Mostra sales de:"
+msgstr "Mostra les sales de:"
 
 #: fractal-gtk/res/ui/server_chooser_menu.ui:65
 msgid "Your homeserver"
-msgstr "El teu servidor domèstic"
+msgstr "El vostre servidor"
 
 #: fractal-gtk/res/ui/server_chooser_menu.ui:93
 msgid "Other Protocol"
-msgstr "Altre protocol"
+msgstr "Un altre protocol"
 
 #: fractal-gtk/res/ui/server_chooser_menu.ui:139
 msgid "Other Homeserver"
-msgstr "Altre servidor domèstic"
+msgstr "Un altre servidor"
 
 #: fractal-gtk/res/ui/server_chooser_menu.ui:156
 msgid "Homeserver URL"
-msgstr "URL del servidor domèstic"
+msgstr "URL del servidor"
 
 #: fractal-gtk/src/actions/account_settings.rs:31
 #: fractal-gtk/src/actions/room_settings.rs:37
@@ -716,7 +720,7 @@ msgstr "Selecciona un avatar nou"
 
 #: fractal-gtk/src/actions/global.rs:320
 msgid "Select a file"
-msgstr "Selecciona un fitxer"
+msgstr "Seleccioneu un fitxer"
 
 #: fractal-gtk/src/actions/message.rs:57
 msgid "This message has no source."
@@ -725,7 +729,7 @@ msgstr "Aquest missatge no té font."
 #: fractal-gtk/src/actions/message.rs:131
 #: fractal-gtk/src/actions/message.rs:162
 msgid "Could not download the file"
-msgstr "No s'ha pogut descarregar el fitxer"
+msgstr "No s'ha pogut baixar el fitxer"
 
 #: fractal-gtk/src/actions/message.rs:138
 msgid "Couldn’t save file"
@@ -741,7 +745,7 @@ msgstr "El codi de validació no és correcte."
 
 #: fractal-gtk/src/appop/account.rs:73
 msgid "Enter the code received via SMS"
-msgstr "Entra el codi rebut per SMS"
+msgstr "Introduïu el codi rebut per SMS"
 
 #: fractal-gtk/src/appop/account.rs:88 fractal-gtk/src/appop/account.rs:144
 msgid "Continue"
@@ -749,35 +753,36 @@ msgstr "Continua"
 
 #: fractal-gtk/src/appop/account.rs:134
 msgid ""
-"In order to add this email address, go to your inbox and follow the link you "
-"received. Once you’ve done that, click Continue."
+"In order to add this email address, go to your inbox and follow the link "
+"you received. Once you’ve done that, click Continue."
 msgstr ""
-"Per a afegir aquesta adreça de correu electrònic, aneu a la safata d'entrada i "
-"seguiu l'enllaç que heu rebut. Un cop hagis fet això, fes clic a continuar."
+"Per afegir aquesta adreça de correu electrònic, aneu a la safata d'entrada "
+"i seguiu l'enllaç que heu rebut. Un cop hagueu fet això, feu clic a "
+"Continuar."
 
 #: fractal-gtk/src/appop/account.rs:348
 msgid "Are you sure you want to delete your account?"
-msgstr "Estàs segur que vols suprimir el teu compte?"
+msgstr "Esteu segurs que voleu suprimir el vostre compte?"
 
 #: fractal-gtk/src/appop/mod.rs:176
 msgid "Fractal [{}]"
-msgstr ""
+msgstr "Fractal [{}]"
 
 #: fractal-gtk/src/appop/notify.rs:18
 msgid "An audio file has been added to the conversation."
-msgstr "Un fitxer d'àudio ha sigut afegit a la conversa."
+msgstr "S'ha afegit un fitxer d'àudio a la conversa."
 
 #: fractal-gtk/src/appop/notify.rs:19
 msgid "An image has been added to the conversation."
-msgstr "Una imatge ha sigut afegida a la conversa."
+msgstr "S'ha afegit una imatge a la conversa."
 
 #: fractal-gtk/src/appop/notify.rs:20
 msgid "A video has been added to the conversation."
-msgstr "Un vídeo ha sigut afegit a la conversa."
+msgstr "S'ha afegit un vídeo a la conversa."
 
 #: fractal-gtk/src/appop/notify.rs:21
 msgid "A file has been added to the conversation."
-msgstr "Un fitxer ha sigut afegit a la conversa."
+msgstr "S'ha afegit un fitxer a la conversa."
 
 #: fractal-gtk/src/appop/notify.rs:26
 msgid " (direct message)"
@@ -785,11 +790,11 @@ msgstr " (missatge directe)"
 
 #: fractal-gtk/src/appop/room.rs:351
 msgid "Leave {room_name}?"
-msgstr "Marxa de {room_name}?"
+msgstr "Voleu sortir de {roomname}?"
 
 #: fractal-gtk/src/appop/room.rs:540
 msgid "The room ID is malformed"
-msgstr "L'ID de la sala està mal format"
+msgstr "L'identificador de la sala està mal format"
 
 #: fractal-gtk/src/appop/room.rs:608
 msgid "EMPTY ROOM"
@@ -810,37 +815,37 @@ msgstr "Diversos usuaris estan escrivint…"
 #: fractal-gtk/src/appop/room.rs:714
 msgid "<b>{}</b> is typing…"
 msgid_plural "<b>{}</b> and <b>{}</b> are typing…"
-msgstr[0] "<b>·{}</b> està escrivint…"
+msgstr[0] "<b>{}</b> està escrivint…"
 msgstr[1] "<b>{}</b> i <b>{}</b> estan escrivint…"
 
 #: fractal-gtk/src/appop/sync.rs:24
 msgid "Syncing, this could take a while"
-msgstr "Sincronitzant, això pot trigar una estona"
+msgstr "S'està sincronitzant, això pot trigar una estona"
 
 #: fractal-gtk/src/backend/directory.rs:35
 #: fractal-gtk/src/backend/directory.rs:81
 msgid "Error searching for rooms"
-msgstr "Error cercant sales"
+msgstr "Error en cercar sales"
 
 #: fractal-gtk/src/backend/register.rs:42
 msgid "Can’t login, try again"
-msgstr "No es pot iniciar la sessió, torneu-ho a provar"
+msgstr "No es pot iniciar la sessió, torna-ho a provar"
 
 #: fractal-gtk/src/backend/room.rs:402
 msgid "Error deleting message"
-msgstr "Error suprimint el missatge"
+msgstr "Error en suprimir el missatge"
 
 #: fractal-gtk/src/backend/room.rs:442
 msgid "Can’t join the room, try again."
-msgstr "No es pot unir a la sala, torneu-ho a provar."
+msgstr "No es pot entrar a la sala, torna-ho a provar."
 
 #: fractal-gtk/src/backend/room.rs:680 fractal-gtk/src/backend/room.rs:732
 msgid "Can’t create the room, try again"
-msgstr "No es pot crear la sala, torneu-ho a intentar"
+msgstr "No es pot crear la sala, torna-ho a provar"
 
 #: fractal-gtk/src/backend/user.rs:112
 msgid "Sorry, account settings can’t be loaded."
-msgstr "Disculpeu, els paràmetres del compte no es poden carregar."
+msgstr "La configuració del compte no es pot carregar."
 
 #: fractal-gtk/src/backend/user.rs:140
 msgid "Email is already in use"
@@ -848,7 +853,7 @@ msgstr "El correu electrònic ja està en ús"
 
 #: fractal-gtk/src/backend/user.rs:143
 msgid "Please enter a valid email address."
-msgstr "Si us plau, introduïu una adreça de correu electrònic vàlida."
+msgstr "Introduïu una adreça electrònica vàlida."
 
 #: fractal-gtk/src/backend/user.rs:146
 msgid "Couldn’t add the email address."
@@ -863,8 +868,8 @@ msgid ""
 "Please enter your phone number in the format: \n"
 " + your country code and your phone number."
 msgstr ""
-"Si us plau, introduïu el vostre número de telèfon en el format: \n"
-" + el vostre codi de país i el vostre número de telèfon."
+"Introduïu el número de telèfon en el format: \n"
+" + el codi del país i el número de telèfon."
 
 #: fractal-gtk/src/backend/user.rs:191
 msgid "Couldn’t add the phone number."
@@ -880,19 +885,19 @@ msgstr "No s'ha pogut suprimir el compte"
 
 #: fractal-gtk/src/ui/about.rs:12
 msgid "A Matrix.org client for GNOME"
-msgstr "Un client per Matrix.org per al GNOME"
+msgstr "Un client Matrix.org per al GNOME"
 
 #: fractal-gtk/src/ui/about.rs:14
 msgid "© 2017–2020 Daniel García Moreno, et al."
-msgstr ""
+msgstr "2017 2017–2020 Daniel García Moreno, et al."
 
 #: fractal-gtk/src/ui/about.rs:21
 msgid "Learn more about Fractal"
-msgstr "Més informació sobre el Fractal"
+msgstr "Més informació sobre Fractal"
 
 #: fractal-gtk/src/ui/about.rs:22
 msgid "translator-credits"
-msgstr "Ícar Nin Solana <icar.nin@pm.me>"
+msgstr "Ícar Nin Solana <icar.nin@protonmail.com>, 2021"
 
 #: fractal-gtk/src/ui/about.rs:37
 msgid "Name by"
@@ -900,7 +905,7 @@ msgstr "Nom per"
 
 #: fractal-gtk/src/ui/attach.rs:26
 msgid "Image from Clipboard"
-msgstr "Imatge des del porta-retalls"
+msgstr "Imatge del porta-retalls"
 
 #: fractal-gtk/src/ui/attach.rs:42
 msgid "Send"
@@ -917,26 +922,26 @@ msgstr "Convida a {name}"
 
 #: fractal-gtk/src/ui/invite.rs:183
 msgid "Join {room_name}?"
-msgstr "Unir-se a {room_name}?"
+msgstr "Unir-vos a {roomname}?"
 
 #: fractal-gtk/src/ui/invite.rs:187
 msgid ""
 "You’ve been invited to join <b>{room_name}</b> room by <b>{sender_name}</b>"
 msgstr ""
-"Has sigut convidat a unir-te la sala  <b>{room_name}</b> per <b>{sender_name}"
-"</b>"
+"Heu estat convidat a unir-vos a la sala <b>{roomname}</b> per "
+"<b>{sendername}</b>"
 
 #: fractal-gtk/src/ui/invite.rs:192
 msgid "You’ve been invited to join <b>{room_name}</b>"
-msgstr "Has sigut convidat a unir-te la sala  <b>{room_name}</b>"
+msgstr "Heu estat convidat a unir-vos a <b>{roomname}</b>"
 
 #: fractal-gtk/src/ui/mod.rs:77
 msgid "You don’t have permission to post to this room"
-msgstr "No tens permís per a publicar en aquesta sala"
+msgstr "No tens permís per publicar en aquesta sala"
 
 #: fractal-gtk/src/ui/mod.rs:159
 msgid "OK"
-msgstr "D'acord"
+msgstr "D'ACORD"
 
 #: fractal-gtk/src/ui/room_settings.rs:264
 msgid "Room · {} member"
@@ -952,7 +957,7 @@ msgstr[1] "{} membres"
 
 #: fractal-gtk/src/widgets/file_dialog.rs:8
 msgid "Save media as"
-msgstr "Desa el mitjà com a"
+msgstr "Desa el suport com a"
 
 #: fractal-gtk/src/widgets/file_dialog.rs:11
 msgid "_Save"
@@ -968,7 +973,7 @@ msgstr "No s'ha pogut recuperar l'URI del fitxer"
 
 #: fractal-gtk/src/widgets/kicked_dialog.rs:46
 msgid "You have been kicked from {}"
-msgstr "Has sigut expulsat de {}"
+msgstr "Heu estat expulsat de {}"
 
 #: fractal-gtk/src/widgets/kicked_dialog.rs:50
 msgid ""
@@ -976,7 +981,7 @@ msgid ""
 " “{}”"
 msgstr ""
 "Expulsat per: {}\n"
-" \"{}\""
+" “{}”"
 
 #: fractal-gtk/src/widgets/login.rs:95
 msgid "Malformed server URL"
@@ -988,7 +993,7 @@ msgstr "S'ha produït un error en carregar el suport anterior"
 
 #: fractal-gtk/src/widgets/members_list.rs:50
 msgid "No matching members found"
-msgstr "No s'han trobat membres que conicideixin"
+msgstr "No s'ha trobat cap membre coincident"
 
 #: fractal-gtk/src/widgets/members_list.rs:146
 msgid "Admin"
@@ -1000,12 +1005,12 @@ msgstr "Moderador"
 
 #: fractal-gtk/src/widgets/members_list.rs:148
 msgid "Privileged"
-msgstr "Privilejat"
+msgstr "Privilegiat"
 
 #: fractal-gtk/src/widgets/message.rs:471
 #, c-format
 msgid "Last edited %c"
-msgstr "Editat per últim cop %c"
+msgstr "Darrera edició %c"
 
 #: fractal-gtk/src/widgets/message.rs:665
 #: fractal-gtk/src/widgets/message.rs:831
@@ -1018,13 +1023,11 @@ msgstr "Obre"
 
 #. Use 12h time format (AM/PM)
 #: fractal-gtk/src/widgets/message.rs:989
-#, fuzzy
 msgid "%l∶%M %p"
-msgstr "%l∶%M %p"
+msgstr "%l:%M %p"
 
 #. Use 24 time format
 #: fractal-gtk/src/widgets/message.rs:992
-#, fuzzy
 msgid "%R"
 msgstr "%R"
 
@@ -1034,15 +1037,13 @@ msgstr "Missatges nous"
 
 #. Translators: This is a date format in the day divider without the year
 #: fractal-gtk/src/widgets/room_history.rs:799
-#, fuzzy
 msgid "%B %e"
-msgstr "%B %e"
+msgstr "%e %B"
 
 #. Translators: This is a date format in the day divider with the year
 #: fractal-gtk/src/widgets/room_history.rs:802
-#, fuzzy
 msgid "%B %e, %Y"
-msgstr "%B %e, %Y"
+msgstr "%e %B, %Y"
 
 #: fractal-gtk/src/widgets/roomlist.rs:480
 msgid "Invites"
@@ -1050,7 +1051,7 @@ msgstr "Invitacions"
 
 #: fractal-gtk/src/widgets/roomlist.rs:481
 msgid "You don’t have any invitations"
-msgstr "No tens cap invitació"
+msgstr "No teniu cap invitació"
 
 #: fractal-gtk/src/widgets/roomlist.rs:485
 msgid "Favorites"
@@ -1058,8 +1059,7 @@ msgstr "Preferits"
 
 #: fractal-gtk/src/widgets/roomlist.rs:486
 msgid "Drag and drop rooms here to add them to your favorites"
-msgstr ""
-"Arrossegueu i deixeu anar sales aquí per a afegir-les als vostres preferits"
+msgstr "Arrossega i deixa anar sales aquí per afegir-les als teus favorits"
 
 #: fractal-gtk/src/widgets/roomlist.rs:490
 msgid "Rooms"
@@ -1067,4 +1067,4 @@ msgstr "Sales"
 
 #: fractal-gtk/src/widgets/roomlist.rs:491
 msgid "You don’t have any rooms yet"
-msgstr "Encara no teniu cap sala"
+msgstr "Encara no teniu sales"
