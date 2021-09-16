@@ -1,0 +1,1064 @@
+# Hebrew translation for fractal.
+# Copyright (C) 2021 fractal's COPYRIGHT HOLDER
+# This file is distributed under the same license as the fractal package.
+# Yaron Shahrabani <sh.yaron@gmail.com>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fractal master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/fractal/issues\n"
+"POT-Creation-Date: 2021-09-15 19:19+0000\n"
+"PO-Revision-Date: 2021-09-17 01:31+0300\n"
+"Language-Team: Hebrew <he@li.org>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
+"2 : 3);\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"X-Generator: Poedit 3.0\n"
+
+#: fractal-gtk/res/gtk/help-overlay.ui:13
+msgctxt "shortcut window"
+msgid "General"
+msgstr "כללי"
+
+#: fractal-gtk/res/gtk/help-overlay.ui:18
+msgctxt "shortcut window"
+msgid "Close the active room"
+msgstr "סגירת החדר הפעיל"
+
+#: fractal-gtk/res/gtk/help-overlay.ui:25
+msgctxt "shortcut window"
+msgid "Open main menu"
+msgstr "פתיחת התפריט הראשי"
+
+#: fractal-gtk/res/gtk/help-overlay.ui:32
+msgctxt "shortcut window"
+msgid "Open / close the room sidebar search"
+msgstr "פתיחת/סגירת החיפוש בחדר מסרגל הצד"
+
+#: fractal-gtk/res/gtk/help-overlay.ui:39
+msgctxt "shortcut window"
+msgid "Open the previous room in the list"
+msgstr "פתיחת החדר הקודם ברשימה"
+
+#: fractal-gtk/res/gtk/help-overlay.ui:46
+msgctxt "shortcut window"
+msgid "Open the next room in the list"
+msgstr "פתיחת החדר הבא ברשימה"
+
+#: fractal-gtk/res/gtk/help-overlay.ui:53
+msgctxt "shortcut window"
+msgid "Open the previous room with unread messages in the list"
+msgstr "פתיחת החדר הקודם עם הודעות שלא נקראו ברשימה"
+
+#: fractal-gtk/res/gtk/help-overlay.ui:60
+msgctxt "shortcut window"
+msgid "Open the next room with unread messages in the list"
+msgstr "פתיחת החדר הבא עם הודעות שלא נקראו ברשימה"
+
+#: fractal-gtk/res/gtk/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Open the first room of the list"
+msgstr "פתיחת החדר הראשון ברשימה"
+
+#: fractal-gtk/res/gtk/help-overlay.ui:74
+msgctxt "shortcut window"
+msgid "Open the last room of the list"
+msgstr "פתיחת החדר האחרון ברשימה"
+
+#: fractal-gtk/res/gtk/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "View older messages"
+msgstr "הצגת הודעות ישנות יותר"
+
+#: fractal-gtk/res/gtk/help-overlay.ui:88
+msgctxt "shortcut window"
+msgid "View newer messages"
+msgstr "הצגת הודעות חדשות יותר"
+
+#: fractal-gtk/res/gtk/help-overlay.ui:94
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr "קיצורי מקלדת"
+
+#: fractal-gtk/res/gtk/help-overlay.ui:101
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "יציאה"
+
+#: fractal-gtk/res/gtk/help-overlay.ui:110
+msgctxt "shortcut message"
+msgid "Composing a new message"
+msgstr "חיבור הודעה חדשה"
+
+#: fractal-gtk/res/gtk/help-overlay.ui:115
+msgctxt "shortcut message"
+msgid "Write on a new line"
+msgstr "כתיבה בשורה חדשה"
+
+#: fractal-gtk/res/org.gnome.Fractal.desktop.in.in:3
+#: fractal-gtk/res/org.gnome.Fractal.metainfo.xml.in.in:5
+#: fractal-gtk/res/ui/login_flow.ui:19 fractal-gtk/src/appop/mod.rs:170
+msgid "Fractal"
+msgstr "פרקטל"
+
+#: fractal-gtk/res/org.gnome.Fractal.desktop.in.in:4
+msgid ""
+"Fractal is a decentralized, secure messaging client for collaborative group "
+"communication."
+msgstr "פרקטל הוא לקוח מבוזר ומאובטח להתכתבות לטובת תקשורת קבוצתית שיתופית."
+
+#: fractal-gtk/res/org.gnome.Fractal.desktop.in.in:5
+msgid "Fractal group messaging"
+msgstr "פרקטל להתכתבות קבוצתית"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: fractal-gtk/res/org.gnome.Fractal.desktop.in.in:14
+msgid "Matrix;matrix.org;chat;irc;communications;talk;riot;element;"
+msgstr ""
+"‫Matrix;matrix.org;מטריקס;מאטריקס;שיח;שיחה;שיחוח;צ׳אט;צ'אט;צ׳ט;צ'אט;תקשורת;"
+"התקשרות;תקשור;אלמנט;ריוט;דיבור;"
+
+#: fractal-gtk/res/org.gnome.Fractal.gschema.xml:13
+msgid "Type of password and token storage"
+msgstr "סוג אחסון הססמה והאסימון"
+
+#: fractal-gtk/res/org.gnome.Fractal.gschema.xml:14
+msgid "Type of password and token storage, default value is: Secret Service"
+msgstr "סוג אחסון הססמה והאסימון, ערך בררת המחדל הוא: השירות הסודי"
+
+#: fractal-gtk/res/org.gnome.Fractal.gschema.xml:21
+msgid "If markdown sending is active"
+msgstr "אם שליחה כ־Markdown פעילה"
+
+#: fractal-gtk/res/org.gnome.Fractal.gschema.xml:22
+msgid "Whether support for sending markdown messages is on"
+msgstr "האם האפשרות לתמוך בשליחת הודעות בתצורת Markdown פעילה"
+
+#: fractal-gtk/res/org.gnome.Fractal.gschema.xml:29
+msgid "X position of the main window on startup"
+msgstr "מיקום ה־X של החלון הראשי עם ההפעלה"
+
+#: fractal-gtk/res/org.gnome.Fractal.gschema.xml:34
+msgid "Y position of the main window on startup"
+msgstr "מיקום ה־Y של החלון הראשי עם ההפעלה"
+
+#: fractal-gtk/res/org.gnome.Fractal.gschema.xml:39
+msgid "Width of the main window on startup"
+msgstr "רוחב החלון הראשי עם ההפעלה"
+
+#: fractal-gtk/res/org.gnome.Fractal.gschema.xml:44
+msgid "Height of the main window on startup"
+msgstr "גובה החלון הראשי עם ההפעלה"
+
+#: fractal-gtk/res/org.gnome.Fractal.gschema.xml:49
+msgid "Whether the main window is maximized on startup"
+msgstr "האם החלון הראשי מוגדל על כל המסך עם ההפעלה"
+
+#: fractal-gtk/res/org.gnome.Fractal.metainfo.xml.in.in:8
+msgid "Daniel García Moreno"
+msgstr "דניאל גרסיה מורנו"
+
+#: fractal-gtk/res/org.gnome.Fractal.metainfo.xml.in.in:9
+msgid "Matrix group messaging app"
+msgstr "יישומון התכתבות קבוצתית ב־Matrix"
+
+#: fractal-gtk/res/org.gnome.Fractal.metainfo.xml.in.in:11
+msgid ""
+"Fractal is a Matrix messaging app for GNOME written in Rust. Its interface "
+"is optimized for collaboration in large groups, such as free software "
+"projects."
+msgstr ""
+"פרקטל הוא יישום התכתבות דרך Matrix עבור GNOME שנכתב ב־Rust. המנשק שלו מותאם "
+"להשתתפות בקבוצות גדולות, כגון מיזמי תכנה חופשית."
+
+#: fractal-gtk/res/ui/account_settings.ui:14 fractal-gtk/res/ui/main_menu.ui:94
+msgid "Account Settings"
+msgstr "הגדרות חשבון"
+
+#: fractal-gtk/res/ui/account_settings.ui:30
+#: fractal-gtk/res/ui/main_window.ui:217 fractal-gtk/res/ui/main_window.ui:454
+#: fractal-gtk/res/ui/media_viewer.ui:36 fractal-gtk/res/ui/room_settings.ui:30
+msgid "Back"
+msgstr "חזרה"
+
+#: fractal-gtk/res/ui/account_settings.ui:92
+msgid "Other people can find you by searching for any of these identifiers."
+msgstr ""
+"אנשים אחרים יכולים לחפש אותך על ידי חיפוש אחר כל אחד מאמצעי הזיהוי האלו."
+
+#: fractal-gtk/res/ui/account_settings.ui:115
+msgid "Name"
+msgstr "שם"
+
+#: fractal-gtk/res/ui/account_settings.ui:138
+msgid "Type in your name"
+msgstr "נא למלא את השם שלך"
+
+#: fractal-gtk/res/ui/account_settings.ui:167
+msgid "Email"
+msgstr "דוא״ל"
+
+#: fractal-gtk/res/ui/account_settings.ui:196
+msgid "Phone"
+msgstr "טלפון"
+
+#: fractal-gtk/res/ui/account_settings.ui:225
+msgid "Password"
+msgstr "ססמה"
+
+#: fractal-gtk/res/ui/account_settings.ui:287
+msgid "Advanced Information"
+msgstr "פרטים מתקדמים"
+
+#: fractal-gtk/res/ui/account_settings.ui:312
+msgid "Homeserver"
+msgstr "שרת ביתי"
+
+#: fractal-gtk/res/ui/account_settings.ui:341
+msgid "Matrix ID"
+msgstr "מזהה Matrix"
+
+#: fractal-gtk/res/ui/account_settings.ui:370
+msgid "Device ID"
+msgstr "מזהה מכשיר"
+
+#: fractal-gtk/res/ui/account_settings.ui:410
+#: fractal-gtk/res/ui/account_settings.ui:466
+msgid "Deactivate Account"
+msgstr "השבתת חשבון"
+
+#: fractal-gtk/res/ui/account_settings.ui:431
+msgid ""
+"Deactivating your account means that you will lose all your messages, "
+"contacts, and files."
+msgstr "משמעות השבתת החשבון שלך היא שכל ההודעות, אנשי הקשר והקבצים שלך יאבדו."
+
+#: fractal-gtk/res/ui/account_settings.ui:441
+msgid ""
+"To confirm that you really want to deactivate this account type in your "
+"password:"
+msgstr "כדי לאשר את ביטול החשבון עליך להקליד את הססמה שלך:"
+
+#: fractal-gtk/res/ui/account_settings.ui:456
+msgid "Also erase all messages"
+msgstr "למחוק גם את כל ההודעות"
+
+#: fractal-gtk/res/ui/account_settings.ui:523
+msgid "Check your email"
+msgstr "נא לבדוק את תיבת הדוא״ל שלך"
+
+#: fractal-gtk/res/ui/account_settings.ui:526
+#: fractal-gtk/res/ui/direct_chat.ui:83 fractal-gtk/res/ui/invite_user.ui:84
+#: fractal-gtk/res/ui/join_room.ui:71 fractal-gtk/res/ui/leave_room.ui:31
+#: fractal-gtk/res/ui/new_room.ui:24 fractal-gtk/src/appop/account.rs:87
+#: fractal-gtk/src/appop/account.rs:143 fractal-gtk/src/ui/attach.rs:41
+msgid "Cancel"
+msgstr "ביטול"
+
+#: fractal-gtk/res/ui/account_settings.ui:534
+msgid "Apply"
+msgstr "החלה"
+
+#: fractal-gtk/res/ui/add_room_menu.ui:8
+msgid "Room Directory"
+msgstr "מגדיר חדרים"
+
+#: fractal-gtk/res/ui/add_room_menu.ui:12
+msgid "Join Room"
+msgstr "הצטרפות לחדר"
+
+#: fractal-gtk/res/ui/add_room_menu.ui:18
+msgid "New Room"
+msgstr "חדר חדש"
+
+#: fractal-gtk/res/ui/add_room_menu.ui:22
+msgid "New Direct Chat"
+msgstr "התכתבות ישירה חדשה"
+
+#: fractal-gtk/res/ui/audio_player.ui:34 fractal-gtk/res/ui/audio_player.ui:45
+msgid "Play"
+msgstr "נגינה"
+
+#: fractal-gtk/res/ui/direct_chat.ui:80
+msgid "New direct chat"
+msgstr "התכתבות ישירה חדשה"
+
+#: fractal-gtk/res/ui/direct_chat.ui:91
+msgid "Start chat"
+msgstr "התחלת התכתבות"
+
+#: fractal-gtk/res/ui/invite.ui:18
+msgid "Invitation"
+msgstr "הזמנה"
+
+#: fractal-gtk/res/ui/invite.ui:32
+msgid "Reject"
+msgstr "דחייה"
+
+#: fractal-gtk/res/ui/invite.ui:40
+msgid "Accept"
+msgstr "קבלה"
+
+#: fractal-gtk/res/ui/invite_user.ui:81 fractal-gtk/res/ui/invite_user.ui:92
+#: fractal-gtk/src/ui/invite.rs:133
+msgid "Invite"
+msgstr "הזמנה"
+
+#: fractal-gtk/res/ui/join_room.ui:34
+msgid "ID or Alias"
+msgstr "מזהה או כינוי"
+
+#: fractal-gtk/res/ui/join_room.ui:68
+msgid "Join room"
+msgstr "הצטרפות לחדר"
+
+#: fractal-gtk/res/ui/join_room.ui:79 fractal-gtk/src/ui/directory.rs:245
+msgid "Join"
+msgstr "הצטרפות"
+
+#: fractal-gtk/res/ui/kicked_room.ui:29 fractal-gtk/res/ui/msg_src_window.ui:32
+msgid "Close"
+msgstr "סגירה"
+
+#: fractal-gtk/res/ui/leave_room.ui:18
+msgid "Leave?"
+msgstr "לעזוב?"
+
+#: fractal-gtk/res/ui/leave_room.ui:19
+msgid ""
+"Once you leave, you won’t be able to interact with people in the room "
+"anymore."
+msgstr "לאחר עזיבתך, לא תהיה לך עוד אפשרות לתקשר עם אנשים מתוך החדר."
+
+#: fractal-gtk/res/ui/leave_room.ui:39
+msgid "Leave room"
+msgstr "עזיבת החדר"
+
+#: fractal-gtk/res/ui/login_flow.ui:29
+msgid "Welcome to Fractal"
+msgstr "ברוך בואך לפרקטל"
+
+#: fractal-gtk/res/ui/login_flow.ui:42 fractal-gtk/res/ui/login_flow.ui:211
+msgid "_Log In"
+msgstr "_כניסה"
+
+#: fractal-gtk/res/ui/login_flow.ui:55
+msgid "_Create Account"
+msgstr "י_צירת חשבון"
+
+#: fractal-gtk/res/ui/login_flow.ui:84
+msgid "Choose Provider"
+msgstr "בחירת ספק"
+
+#: fractal-gtk/res/ui/login_flow.ui:107
+msgid "_Next"
+msgstr "ה_בא"
+
+#: fractal-gtk/res/ui/login_flow.ui:125
+msgid "What is your Provider?"
+msgstr "מה הספק שלך?"
+
+#: fractal-gtk/res/ui/login_flow.ui:146
+msgid "Matrix provider domain, e.g. myserver.co"
+msgstr "שם תחום ספק Matrix, למשל: myserver.co"
+
+#: fractal-gtk/res/ui/login_flow.ui:161
+msgid "The domain may not be empty."
+msgstr "שם התחום לא יכול להישאר ריק."
+
+#: fractal-gtk/res/ui/login_flow.ui:188
+msgid "Log In"
+msgstr "כניסה"
+
+#: fractal-gtk/res/ui/login_flow.ui:236
+msgid "_User ID"
+msgstr "מ_זהה משתמש"
+
+#: fractal-gtk/res/ui/login_flow.ui:252
+msgid "_Password"
+msgstr "_ססמה"
+
+#: fractal-gtk/res/ui/login_flow.ui:284
+msgid "User name, email, or phone number"
+msgstr "שם המשתמש, כתובת הדוא״ל או מספר הטלפון"
+
+#: fractal-gtk/res/ui/login_flow.ui:317
+msgid "_Forgot Password?"
+msgstr "_שכחת ססמה?"
+
+#: fractal-gtk/res/ui/login_flow.ui:335
+msgid "Invalid username or password"
+msgstr "שם משתמש או ססמה שגויים"
+
+#: fractal-gtk/res/ui/main_menu.ui:103
+msgid "Log Out"
+msgstr "יציאה"
+
+#: fractal-gtk/res/ui/main_menu.ui:120
+msgid "Keyboard _Shortcuts"
+msgstr "_קיצורי מקלדת"
+
+#: fractal-gtk/res/ui/main_menu.ui:129
+msgid "_About Fractal"
+msgstr "_על פרקטל"
+
+#: fractal-gtk/res/ui/main_window.ui:56
+msgid "User"
+msgstr "משתמש"
+
+#: fractal-gtk/res/ui/main_window.ui:82
+msgid "Add"
+msgstr "הוספה"
+
+#: fractal-gtk/res/ui/main_window.ui:111
+msgid "Room search"
+msgstr "חיפוש חדרים"
+
+#: fractal-gtk/res/ui/main_window.ui:282
+msgid "Room Menu"
+msgstr "תפריט חדרים"
+
+#: fractal-gtk/res/ui/main_window.ui:349
+msgid "No Room Selected"
+msgstr "לא נבחרו חדרים"
+
+#: fractal-gtk/res/ui/main_window.ui:350
+msgid "Join a room to start chatting."
+msgstr "יש להצטרף לחדר כדי להתחיל להתכתב."
+
+#: fractal-gtk/res/ui/main_window.ui:354
+msgid "No room"
+msgstr "אין חדר"
+
+#: fractal-gtk/res/ui/main_window.ui:494
+#: fractal-gtk/res/ui/server_chooser_menu.ui:51
+#: fractal-gtk/src/ui/connect/directory.rs:117
+msgid "Default Matrix Server"
+msgstr "שרת Matrix כבררת מחדל"
+
+#: fractal-gtk/res/ui/markdown_popover.ui:23
+msgid "Markdown"
+msgstr "Markdown"
+
+#: fractal-gtk/res/ui/markdown_popover.ui:52
+msgid "> quote"
+msgstr "> ציטוט"
+
+#: fractal-gtk/res/ui/markdown_popover.ui:63
+msgid "**bold**"
+msgstr "**מודגש**"
+
+#: fractal-gtk/res/ui/markdown_popover.ui:78
+msgid "`code`"
+msgstr "`קוד`"
+
+#: fractal-gtk/res/ui/markdown_popover.ui:90
+msgid "*italic*"
+msgstr "*נטוי*"
+
+#: fractal-gtk/res/ui/media_viewer.ui:63
+msgid "Toggle fullscreen"
+msgstr "כיסוי המסך/הקטנה"
+
+#: fractal-gtk/res/ui/media_viewer.ui:226
+msgid "Loading more media"
+msgstr "נטענת מדיה נוספת"
+
+#: fractal-gtk/res/ui/message_menu.ui:22
+msgid "Reply"
+msgstr "תגובה"
+
+#: fractal-gtk/res/ui/message_menu.ui:29
+msgid "Open With…"
+msgstr "לפתוח עם…"
+
+#: fractal-gtk/res/ui/message_menu.ui:37
+msgid "Save Image As…"
+msgstr "שמירת תמונה בשם…"
+
+#: fractal-gtk/res/ui/message_menu.ui:45
+msgid "Save Video As…"
+msgstr "שמירת סרטון בשם…"
+
+#: fractal-gtk/res/ui/message_menu.ui:53
+msgid "Copy Image"
+msgstr "העתקת תמונה"
+
+#: fractal-gtk/res/ui/message_menu.ui:61
+msgid "Copy Selection"
+msgstr "העתקת הבחירה"
+
+#: fractal-gtk/res/ui/message_menu.ui:69
+msgid "Copy Text"
+msgstr "העתקת טקסט"
+
+#: fractal-gtk/res/ui/message_menu.ui:79
+msgid "View Source"
+msgstr "הצגת המקור"
+
+#: fractal-gtk/res/ui/message_menu.ui:94
+msgid "Delete Message"
+msgstr "מחיקת הודעה"
+
+#: fractal-gtk/res/ui/msg_src_window.ui:21
+msgid "Message Source"
+msgstr "מקור ההודעה"
+
+#: fractal-gtk/res/ui/msg_src_window.ui:24
+msgid "Copy To Clipboard"
+msgstr "העתקה ללוח הגזירים"
+
+#: fractal-gtk/res/ui/new_room.ui:21
+msgid "Create new room"
+msgstr "יצירת חדר חדש"
+
+#: fractal-gtk/res/ui/new_room.ui:32
+msgid "Create"
+msgstr "יצירה"
+
+#: fractal-gtk/res/ui/new_room.ui:71
+msgid "Room name"
+msgstr "שם החדר"
+
+#: fractal-gtk/res/ui/new_room.ui:100
+msgid "Visibility"
+msgstr "חשיפה"
+
+#: fractal-gtk/res/ui/new_room.ui:114
+msgid "Private"
+msgstr "פרטי"
+
+#: fractal-gtk/res/ui/new_room.ui:125
+msgid "Public"
+msgstr "ציבורי"
+
+#: fractal-gtk/res/ui/password_dialog.ui:22
+#: fractal-gtk/src/widgets/file_dialog.rs:12
+#: fractal-gtk/src/widgets/file_dialog.rs:33
+msgid "_Cancel"
+msgstr "_ביטול"
+
+#: fractal-gtk/res/ui/password_dialog.ui:35
+msgid "Ch_ange"
+msgstr "_שינוי"
+
+#: fractal-gtk/res/ui/password_dialog.ui:125
+msgid "The passwords do not match."
+msgstr "הססמאות אינן תואמות."
+
+#: fractal-gtk/res/ui/password_dialog.ui:143
+msgid "_Verify New Password"
+msgstr "_אימות הססמה החדשה"
+
+#: fractal-gtk/res/ui/password_dialog.ui:160
+msgid "_New Password"
+msgstr "ססמה _חדשה"
+
+#: fractal-gtk/res/ui/password_dialog.ui:204
+msgid "Current _Password"
+msgstr "ססמה _נוכחית"
+
+#: fractal-gtk/res/ui/room_menu.ui:8
+msgid "Room Details"
+msgstr "פרטי החדר"
+
+#: fractal-gtk/res/ui/room_menu.ui:12
+msgid "Invite to This Room"
+msgstr "הזמנה לחדר הזה"
+
+#: fractal-gtk/res/ui/room_menu.ui:18
+msgid "Leave Room"
+msgstr "יציאה מהחדר"
+
+#: fractal-gtk/res/ui/room_settings.ui:14
+msgid "Details"
+msgstr "פרטים"
+
+#: fractal-gtk/res/ui/room_settings.ui:112
+msgid "Unknown"
+msgstr "לא ידוע"
+
+#: fractal-gtk/res/ui/room_settings.ui:133
+msgid "Add name"
+msgstr "הוספת שם"
+
+#: fractal-gtk/res/ui/room_settings.ui:160
+msgid "Add topic"
+msgstr "הוספת נושא"
+
+#: fractal-gtk/res/ui/room_settings.ui:179
+msgid "Type in your room topic"
+msgstr "נא להקליד את נושא החדר שלך"
+
+#: fractal-gtk/res/ui/room_settings.ui:202
+msgid "No room description"
+msgstr "אין תיאור לחדר"
+
+#: fractal-gtk/res/ui/room_settings.ui:230
+msgid "Notifications"
+msgstr "התראות"
+
+#: fractal-gtk/res/ui/room_settings.ui:258
+msgid "Notification sounds"
+msgstr "צלילי התראות"
+
+#: fractal-gtk/res/ui/room_settings.ui:290
+msgid "For all messages"
+msgstr "לכל ההודעות"
+
+#: fractal-gtk/res/ui/room_settings.ui:322
+msgid "Only for mentions"
+msgstr "רק לאזכורים"
+
+#: fractal-gtk/res/ui/room_settings.ui:352
+msgid "Shared Media"
+msgstr "מדיה משותפת"
+
+#: fractal-gtk/res/ui/room_settings.ui:394
+msgid "photos"
+msgstr "תמונות"
+
+#: fractal-gtk/res/ui/room_settings.ui:424
+msgid "videos"
+msgstr "סרטונים"
+
+#: fractal-gtk/res/ui/room_settings.ui:454
+msgid "documents"
+msgstr "מסמכים"
+
+#: fractal-gtk/res/ui/room_settings.ui:475
+msgid "New members can see"
+msgstr "חברים חדשים יכולים לראות"
+
+#: fractal-gtk/res/ui/room_settings.ui:507
+msgid "All room history"
+msgstr "את כל היסטוריית החדר"
+
+#: fractal-gtk/res/ui/room_settings.ui:539
+msgid "History after they were invited"
+msgstr "את ההיסטוריה מאז הזמנתם"
+
+#: fractal-gtk/res/ui/room_settings.ui:569
+msgid "Room Visibility"
+msgstr "חשיפת החדר"
+
+#: fractal-gtk/res/ui/room_settings.ui:604
+msgid "Allow guests"
+msgstr "לאפשר אורחים"
+
+#: fractal-gtk/res/ui/room_settings.ui:635
+msgid "Allow joining without invite"
+msgstr "לאפשר הצטרפות ללא הזמנה"
+
+#: fractal-gtk/res/ui/room_settings.ui:666
+msgid "Publish in room directory"
+msgstr "פרסום במגדיר החדרים"
+
+#: fractal-gtk/res/ui/room_settings.ui:695
+msgid "Join addresses"
+msgstr "כתובות להצטרפות"
+
+#: fractal-gtk/res/ui/room_settings.ui:749
+msgid "members"
+msgstr "חברים"
+
+#: fractal-gtk/res/ui/room_settings.ui:761
+msgid "Invite New Member"
+msgstr "הזמנת חברים חדשים"
+
+#: fractal-gtk/res/ui/room_settings.ui:786
+msgid "Search for room members"
+msgstr "חיפוש אחר חברים בחדר"
+
+#: fractal-gtk/res/ui/scroll_widget.ui:63
+msgid "Scroll to bottom"
+msgstr "גלילה למטה"
+
+#: fractal-gtk/res/ui/server_chooser_menu.ui:30
+msgid "Show rooms from:"
+msgstr "הצגת חדרים מתוך:"
+
+#: fractal-gtk/res/ui/server_chooser_menu.ui:65
+msgid "Your homeserver"
+msgstr "שרת הבית שלך"
+
+#: fractal-gtk/res/ui/server_chooser_menu.ui:93
+msgid "Other Protocol"
+msgstr "פרוטוקול אחר"
+
+#: fractal-gtk/res/ui/server_chooser_menu.ui:139
+msgid "Other Homeserver"
+msgstr "שרת ביתי אחר"
+
+#: fractal-gtk/res/ui/server_chooser_menu.ui:156
+msgid "Homeserver URL"
+msgstr "כתובת השרת הביתי"
+
+#: fractal-gtk/src/actions/account_settings.rs:31
+#: fractal-gtk/src/actions/room_settings.rs:37
+msgid "Images"
+msgstr "תמונות"
+
+#: fractal-gtk/src/actions/account_settings.rs:32
+#: fractal-gtk/src/actions/room_settings.rs:39
+msgid "Select a new avatar"
+msgstr "נא לבחור תמונה ייצוגית חדשה"
+
+#: fractal-gtk/src/actions/global.rs:320
+msgid "Select a file"
+msgstr "בחירת קובץ"
+
+#: fractal-gtk/src/actions/message.rs:57
+msgid "This message has no source."
+msgstr "להודעה הזאת אין מקור."
+
+#: fractal-gtk/src/actions/message.rs:131
+#: fractal-gtk/src/actions/message.rs:162
+msgid "Could not download the file"
+msgstr "לא ניתן להוריד את הקובץ"
+
+#: fractal-gtk/src/actions/message.rs:138
+msgid "Couldn’t save file"
+msgstr "לא ניתן לשמור קובץ"
+
+#: fractal-gtk/src/actions/room_settings.rs:53
+msgid "Couldn’t open file"
+msgstr "לא ניתן לפתוח קובץ"
+
+#: fractal-gtk/src/appop/account.rs:65
+msgid "The validation code is not correct."
+msgstr "קוד האימות שגוי."
+
+#: fractal-gtk/src/appop/account.rs:73
+msgid "Enter the code received via SMS"
+msgstr "נא למלא את הקוד שקיבלת במסרון"
+
+#: fractal-gtk/src/appop/account.rs:88 fractal-gtk/src/appop/account.rs:144
+msgid "Continue"
+msgstr "המשך"
+
+#: fractal-gtk/src/appop/account.rs:134
+msgid ""
+"In order to add this email address, go to your inbox and follow the link you "
+"received. Once you’ve done that, click Continue."
+msgstr ""
+"כדי להוסיף את כתובת הדוא״ל הזאת, עליך לעבור לתיבת הדואר הנכנס שלך ולהיכנס "
+"לקישור שקיבלת. לאחר ביצוע המשימה הזאת יש ללחוץ על המשך."
+
+#: fractal-gtk/src/appop/account.rs:348
+msgid "Are you sure you want to delete your account?"
+msgstr "למחוק את החשבון שלך?"
+
+#: fractal-gtk/src/appop/mod.rs:176
+msgid "Fractal [{}]"
+msgstr "פרקטל [{}]"
+
+#: fractal-gtk/src/appop/notify.rs:18
+msgid "An audio file has been added to the conversation."
+msgstr "נוסף קובץ שמע להתכתבות."
+
+#: fractal-gtk/src/appop/notify.rs:19
+msgid "An image has been added to the conversation."
+msgstr "נוספה תמונה להתכתבות."
+
+#: fractal-gtk/src/appop/notify.rs:20
+msgid "A video has been added to the conversation."
+msgstr "נוסף סרטון להתכתבות."
+
+#: fractal-gtk/src/appop/notify.rs:21
+msgid "A file has been added to the conversation."
+msgstr "נוסף קובץ להתכתבות."
+
+#: fractal-gtk/src/appop/notify.rs:26
+msgid " (direct message)"
+msgstr " (הודעה ישירה)"
+
+#: fractal-gtk/src/appop/room.rs:351
+msgid "Leave {room_name}?"
+msgstr "לעזוב את {room_name}?"
+
+#: fractal-gtk/src/appop/room.rs:540
+msgid "The room ID is malformed"
+msgstr "מזהה החדר משובש"
+
+#: fractal-gtk/src/appop/room.rs:608
+msgid "EMPTY ROOM"
+msgstr "חדר ריק"
+
+#: fractal-gtk/src/appop/room.rs:610
+msgid "{m1} and {m2}"
+msgstr "‫{m1} וגם {m2}"
+
+#: fractal-gtk/src/appop/room.rs:611
+msgid "{m1} and Others"
+msgstr "‫{m1} ואחרים"
+
+#: fractal-gtk/src/appop/room.rs:711
+msgid "Several users are typing…"
+msgstr "כמה משתמשים מקלידים…"
+
+#: fractal-gtk/src/appop/room.rs:714
+msgid "<b>{}</b> is typing…"
+msgid_plural "<b>{}</b> and <b>{}</b> are typing…"
+msgstr[0] "הקלדה אצל <b>{}</b>…"
+msgstr[1] "הקלדה אצל <b>{}</b> וגם <b>{}</b>…"
+msgstr[2] "הקלדה אצל <b>{}</b> וגם <b>{}</b>…"
+msgstr[3] "הקלדה אצל <b>{}</b> וגם <b>{}</b>…"
+
+#: fractal-gtk/src/appop/sync.rs:24
+msgid "Syncing, this could take a while"
+msgstr "מתבצע סנכרון, עלול לארוך זמן מה"
+
+#: fractal-gtk/src/backend/directory.rs:35
+#: fractal-gtk/src/backend/directory.rs:81
+msgid "Error searching for rooms"
+msgstr "שגיאה בחיפוש אחר חדרים"
+
+#: fractal-gtk/src/backend/register.rs:42
+msgid "Can’t login, try again"
+msgstr "לא ניתן להיכנס, נא לנסות שוב"
+
+#: fractal-gtk/src/backend/room.rs:402
+msgid "Error deleting message"
+msgstr "שגיאה במחיקת הודעה"
+
+#: fractal-gtk/src/backend/room.rs:442
+msgid "Can’t join the room, try again."
+msgstr "לא ניתן להצטרף לחדר, נא לנסות שוב."
+
+#: fractal-gtk/src/backend/room.rs:680 fractal-gtk/src/backend/room.rs:732
+msgid "Can’t create the room, try again"
+msgstr "לא ניתן ליצור חדר, נא לנסות שוב"
+
+#: fractal-gtk/src/backend/user.rs:112
+msgid "Sorry, account settings can’t be loaded."
+msgstr "לא ניתן לטעון את הגדרות החשבון, עמך הסליחה."
+
+#: fractal-gtk/src/backend/user.rs:140
+msgid "Email is already in use"
+msgstr "כתובת הדוא״ל כבר בשימוש"
+
+#: fractal-gtk/src/backend/user.rs:143
+msgid "Please enter a valid email address."
+msgstr "נא למלא כתובת דוא״ל תקנית."
+
+#: fractal-gtk/src/backend/user.rs:146
+msgid "Couldn’t add the email address."
+msgstr "לא ניתן להוסיף את כתובת הדוא״ל."
+
+#: fractal-gtk/src/backend/user.rs:183
+msgid "Phone number is already in use"
+msgstr "מספר הטלפון כבר בשימוש"
+
+#: fractal-gtk/src/backend/user.rs:187
+msgid ""
+"Please enter your phone number in the format: \n"
+" + your country code and your phone number."
+msgstr ""
+"נא למלא את מספר הטלפון שלך בצורה: ‬‬\n"
+"‫‫‫‫ + קוד המדינה ומספר הטלפון שלך."
+
+#: fractal-gtk/src/backend/user.rs:191
+msgid "Couldn’t add the phone number."
+msgstr "לא ניתן להוסיף את מספר הטלפון."
+
+#: fractal-gtk/src/backend/user.rs:329
+msgid "Couldn’t change the password"
+msgstr "לא ניתן להחליף את הססמה"
+
+#: fractal-gtk/src/backend/user.rs:382
+msgid "Couldn’t delete the account"
+msgstr "לא ניתן למחוק את החשבון"
+
+#: fractal-gtk/src/ui/about.rs:12
+msgid "A Matrix.org client for GNOME"
+msgstr "לקוח Matrix.org עבור GNOME"
+
+#: fractal-gtk/src/ui/about.rs:14
+msgid "© 2017–2020 Daniel García Moreno, et al."
+msgstr "© 2017–2020 דניאל גרסיה מורנו ואחרים."
+
+#: fractal-gtk/src/ui/about.rs:21
+msgid "Learn more about Fractal"
+msgstr "מידע נוסף על פרקטל"
+
+#: fractal-gtk/src/ui/about.rs:22
+msgid "translator-credits"
+msgstr "ירון שהרבני <sh.yaron@gmail.com>"
+
+#: fractal-gtk/src/ui/about.rs:37
+msgid "Name by"
+msgstr "השם מאת"
+
+#: fractal-gtk/src/ui/attach.rs:26
+msgid "Image from Clipboard"
+msgstr "תמונה מלוח הגזירים"
+
+#: fractal-gtk/src/ui/attach.rs:42
+msgid "Send"
+msgstr "שליחה"
+
+#. Filename for the attached image
+#: fractal-gtk/src/ui/attach.rs:90
+msgid "image"
+msgstr "תמונה"
+
+#: fractal-gtk/src/ui/invite.rs:131
+msgid "Invite to {name}"
+msgstr "הזמנה אל {name}"
+
+#: fractal-gtk/src/ui/invite.rs:183
+msgid "Join {room_name}?"
+msgstr "להצטרף אל {room_name}?"
+
+#: fractal-gtk/src/ui/invite.rs:187
+msgid ""
+"You’ve been invited to join <b>{room_name}</b> room by <b>{sender_name}</b>"
+msgstr "הוזמנת להצטרף לחדר <b>{room_name}</b> על ידי <b>{sender_name}</b>"
+
+#: fractal-gtk/src/ui/invite.rs:192
+msgid "You’ve been invited to join <b>{room_name}</b>"
+msgstr "הוזמנת להצטרף אל <b>{room_name}</b>"
+
+#: fractal-gtk/src/ui/mod.rs:77
+msgid "You don’t have permission to post to this room"
+msgstr "אין לך הרשאות לפרסם בחדר הזה"
+
+#: fractal-gtk/src/ui/mod.rs:159
+msgid "OK"
+msgstr "אישור"
+
+#: fractal-gtk/src/ui/room_settings.rs:264
+msgid "Room · {} member"
+msgid_plural "Room · {} members"
+msgstr[0] "חדר · חבר אחד"
+msgstr[1] "חדר · שני חברים"
+msgstr[2] "חדר · {} חברים"
+msgstr[3] "חדר · {} חברים"
+
+#: fractal-gtk/src/ui/room_settings.rs:699
+msgid "{} member"
+msgid_plural "{} members"
+msgstr[0] "חבר אחד"
+msgstr[1] "שני חברים"
+msgstr[2] "{} חברים"
+msgstr[3] "{} חברים"
+
+#: fractal-gtk/src/widgets/file_dialog.rs:8
+msgid "Save media as"
+msgstr "שמירת המדיה בשם"
+
+#: fractal-gtk/src/widgets/file_dialog.rs:11
+msgid "_Save"
+msgstr "_שמירה"
+
+#: fractal-gtk/src/widgets/file_dialog.rs:32
+msgid "_Select"
+msgstr "_בחירה"
+
+#: fractal-gtk/src/widgets/inline_player.rs:513
+msgid "Could not retrieve file URI"
+msgstr "לא ניתן לקבל את כתובת הקובץ"
+
+#: fractal-gtk/src/widgets/kicked_dialog.rs:46
+msgid "You have been kicked from {}"
+msgstr "נבעטת מתוך {}"
+
+#: fractal-gtk/src/widgets/kicked_dialog.rs:50
+msgid ""
+"Kicked by: {}\n"
+" “{}”"
+msgstr ""
+"בעיטה על ידי: {}\n"
+"‬\n"
+"‫ „{}”"
+
+#: fractal-gtk/src/widgets/login.rs:95
+msgid "Malformed server URL"
+msgstr "כתובת השרת משובשת"
+
+#: fractal-gtk/src/widgets/media_viewer.rs:1026
+msgid "Error while loading previous media"
+msgstr "טעינת המדיה הקודמת נתקלה בשגיאה"
+
+#: fractal-gtk/src/widgets/members_list.rs:50
+msgid "No matching members found"
+msgstr "לא נמצאו חברים תואמים"
+
+#: fractal-gtk/src/widgets/members_list.rs:146
+msgid "Admin"
+msgstr "הנהלה"
+
+#: fractal-gtk/src/widgets/members_list.rs:147
+msgid "Moderator"
+msgstr "פיקוח"
+
+#: fractal-gtk/src/widgets/members_list.rs:148
+msgid "Privileged"
+msgstr "עם הרשאות"
+
+#: fractal-gtk/src/widgets/message.rs:471
+#, c-format
+msgid "Last edited %c"
+msgstr "עריכה אחרונה ב־%c"
+
+#: fractal-gtk/src/widgets/message.rs:665
+#: fractal-gtk/src/widgets/message.rs:831
+msgid "Save"
+msgstr "שמירה"
+
+#: fractal-gtk/src/widgets/message.rs:846
+msgid "Open"
+msgstr "פתיחה"
+
+#. Use 12h time format (AM/PM)
+#: fractal-gtk/src/widgets/message.rs:989
+msgid "%l∶%M %p"
+msgstr "%l∶%M %p"
+
+#. Use 24 time format
+#: fractal-gtk/src/widgets/message.rs:992
+msgid "%R"
+msgstr "%R"
+
+#: fractal-gtk/src/widgets/room_history.rs:108
+msgid "New Messages"
+msgstr "הודעות חדשות"
+
+#. Translators: This is a date format in the day divider without the year
+#: fractal-gtk/src/widgets/room_history.rs:799
+msgid "%B %e"
+msgstr "‫%e ב%B"
+
+#. Translators: This is a date format in the day divider with the year
+#: fractal-gtk/src/widgets/room_history.rs:802
+msgid "%B %e, %Y"
+msgstr "‫%e ב%B, %Y"
+
+#: fractal-gtk/src/widgets/roomlist.rs:480
+msgid "Invites"
+msgstr "הזמנות"
+
+#: fractal-gtk/src/widgets/roomlist.rs:481
+msgid "You don’t have any invitations"
+msgstr "אין לך הזמנות"
+
+#: fractal-gtk/src/widgets/roomlist.rs:485
+msgid "Favorites"
+msgstr "מועדפים"
+
+#: fractal-gtk/src/widgets/roomlist.rs:486
+msgid "Drag and drop rooms here to add them to your favorites"
+msgstr "ניתן לגרור ולשחרר חדרים לכאן כדי להוסיף אותם למועדפים שלך"
+
+#: fractal-gtk/src/widgets/roomlist.rs:490
+msgid "Rooms"
+msgstr "חדרים"
+
+#: fractal-gtk/src/widgets/roomlist.rs:491
+msgid "You don’t have any rooms yet"
+msgstr "אין לך חדרים עדיין"
