@@ -18,6 +18,11 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="4.4.1" type="stable" date="2021-10-18" urgency="high">
+      <description>
+        <p>This new major release is the result of 14 months of hard work.</p>
+      </description>
+    </release>
     <release version="4.4" type="stable" date="2020-08-07" urgency="high">
       <description>
         <p>This new major release is the result of 10 months of hard work.</p>
