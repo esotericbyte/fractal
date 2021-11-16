@@ -68,14 +68,18 @@
         },
         {
             "name" : "gst-editing-services",
+            "buildsystem" : "meson",
             "config-opts" : [
-                "--disable-Werror"
+                "-Ddoc=disabled",
+                "-Dexamples=disabled",
+                "-Dtests=disabled",
+                "-Dtests=disabled"
             ],
             "sources" : [
                 {
                     "type" : "git",
                     "url" : "https://gitlab.freedesktop.org/gstreamer/gst-editing-services.git",
-                    "tag" : "1.16.1"
+                    "tag" : "1.18.5"
                 }
             ]
         },
