@@ -1,81 +1,51 @@
 use adw::{prelude::BinExt, subclass::prelude::*};
 use gettextrs::gettext;
 use gtk::{
-    gdk,
-    gdk_pixbuf::Pixbuf,
     gio,
     glib::{self, clone},
     prelude::*,
     subclass::prelude::*,
 };
 use log::warn;
-use matrix_sdk::{
-    media::{MediaEventContent, MediaThumbnailSize},
-    ruma::{
-        api::client::r0::media::get_content_thumbnail::Method,
-        events::{room::message::ImageMessageEventContent, sticker::StickerEventContent},
-        uint,
-    },
+use matrix_sdk::ruma::events::room::message::VideoMessageEventContent;
+
+use crate::{
+    components::VideoPlayer,
+    session::Session,
+    spawn, spawn_tokio,
+    utils::{cache_dir, uint_to_i32},
 };
 
-use crate::{session::Session, spawn, spawn_tokio, utils::uint_to_i32};
-
-#[derive(Debug, Hash, Eq, PartialEq, Clone, Copy, glib::GEnum)]
-#[repr(u32)]
-#[genum(type_name = "MediaType")]
-pub enum MediaType {
-    Image = 0,
-    Sticker = 1,
-}
-
-impl Default for MediaType {
-    fn default() -> Self {
-        Self::Image
-    }
-}
-
 mod imp {
-    use std::cell::{Cell, RefCell};
+    use std::cell::Cell;
 
     use once_cell::sync::Lazy;
 
     use super::*;
 
     #[derive(Debug, Default)]
-    pub struct MessageImage {
-        /// The type of media previewed with this image.
-        pub media_type: Cell<MediaType>,
-        /// The intended display width of the full image.
+    pub struct MessageVideo {
+        /// The intended display width of the video.
         pub width: Cell<i32>,
-        /// The intended display height of the full image.
+        /// The intended display height of the video.
         pub height: Cell<i32>,
-        /// The "body" of the image to show as a tooltip. Only used for stickers.
-        pub body: RefCell<Option<String>>,
     }
 
     #[glib::object_subclass]
-    impl ObjectSubclass for MessageImage {
-        const NAME: &'static str = "ContentMessageImage";
-        type Type = super::MessageImage;
+    impl ObjectSubclass for MessageVideo {
+        const NAME: &'static str = "ContentMessageVideo";
+        type Type = super::MessageVideo;
         type ParentType = adw::Bin;
     }
 
-    impl ObjectImpl for MessageImage {
+    impl ObjectImpl for MessageVideo {
         fn properties() -> &'static [glib::ParamSpec] {
             static PROPERTIES: Lazy<Vec<glib::ParamSpec>> = Lazy::new(|| {
                 vec![
-                    glib::ParamSpec::new_enum(
-                        "media-type",
-                        "Media Type",
-                        "The type of media previewed with this image",
-                        MediaType::static_type(),
-                        MediaType::default() as i32,
-                        glib::ParamFlags::WRITABLE,
-                    ),
                     glib::ParamSpec::new_int(
                         "width",
                         "Width",
-                        "The intended display width of the full image",
+                        "The intended display width of the video",
                         -1,
                         i32::MAX,
                         -1,
@@ -84,17 +54,10 @@ mod imp {
                     glib::ParamSpec::new_int(
                         "height",
                         "Height",
-                        "The intended display height of the full image",
+                        "The intended display height of the video",
                         -1,
                         i32::MAX,
                         -1,
-                        glib::ParamFlags::WRITABLE,
-                    ),
-                    glib::ParamSpec::new_string(
-                        "body",
-                        "Body",
-                        "The 'body' of the image to show as a tooltip",
-                        None,
                         glib::ParamFlags::WRITABLE,
                     ),
                 ]
@@ -111,17 +74,11 @@ mod imp {
             pspec: &glib::ParamSpec,
         ) {
             match pspec.name() {
-                "media-type" => {
-                    self.media_type.set(value.get().unwrap());
-                }
                 "width" => {
                     self.width.set(value.get().unwrap());
                 }
                 "height" => {
                     self.height.set(value.get().unwrap());
-                }
-                "body" => {
-                    self.body.replace(value.get().unwrap());
                 }
                 _ => unimplemented!(),
             }
@@ -135,7 +92,7 @@ mod imp {
         }
     }
 
-    impl WidgetImpl for MessageImage {
+    impl WidgetImpl for MessageVideo {
         fn measure(
             &self,
             obj: &Self::Type,
@@ -197,7 +154,7 @@ mod imp {
                 let width = if original_height > 0 && original_width > 0 {
                     height * original_width / original_height
                 } else {
-                    // Get the natural width of the image data.
+                    // Get the natural width of the video data.
                     child.measure(gtk::Orientation::Horizontal, height).1
                 };
 
@@ -206,102 +163,58 @@ mod imp {
         }
     }
 
-    impl BinImpl for MessageImage {}
+    impl BinImpl for MessageVideo {}
 }
 
 glib::wrapper! {
-    /// A widget displaying an image message.
-    pub struct MessageImage(ObjectSubclass<imp::MessageImage>)
+    /// A widget displaying an message's thumbnail.
+    pub struct MessageVideo(ObjectSubclass<imp::MessageVideo>)
         @extends gtk::Widget, adw::Bin, @implements gtk::Accessible;
 }
 
-impl MessageImage {
-    pub fn image(image: ImageMessageEventContent, session: &Session) -> Self {
-        let info = image.info.as_deref();
+impl MessageVideo {
+    pub fn new(video: VideoMessageEventContent, session: &Session) -> Self {
+        let info = video.info.as_deref();
         let width = uint_to_i32(info.and_then(|info| info.width));
         let height = uint_to_i32(info.and_then(|info| info.height));
 
         let self_: Self = glib::Object::new(&[("width", &width), ("height", &height)])
-            .expect("Failed to create MessageImage");
-        self_.build(image, session);
+            .expect("Failed to create MessageVideo");
+        self_.build(video, session);
         self_
     }
 
-    pub fn sticker(sticker: StickerEventContent, session: &Session) -> Self {
-        let info = &sticker.info;
-        let width = uint_to_i32(info.width);
-        let height = uint_to_i32(info.height);
-
-        let self_: Self = glib::Object::new(&[
-            ("media-type", &MediaType::Sticker),
-            ("width", &width),
-            ("height", &height),
-            ("body", &Some(sticker.body.clone())),
-        ])
-        .expect("Failed to create MessageImage");
-        self_.build(sticker, session);
-        self_
-    }
-
-    pub fn media_type(&self) -> MediaType {
-        let priv_ = imp::MessageImage::from_instance(self);
-        priv_.media_type.get()
-    }
-
-    pub fn body(&self) -> Option<String> {
-        let priv_ = imp::MessageImage::from_instance(self);
-        priv_.body.borrow().clone()
-    }
-
-    fn build<C>(&self, content: C, session: &Session)
-    where
-        C: MediaEventContent + Send + Sync + 'static,
-    {
+    fn build(&self, video: VideoMessageEventContent, session: &Session) {
+        let body = video.body.clone();
         let client = session.client();
-        let handle = match content.thumbnail() {
-            Some(_) => {
-                spawn_tokio!(async move {
-                    client
-                        .get_thumbnail(
-                            content,
-                            MediaThumbnailSize {
-                                method: Method::Scale,
-                                width: uint!(320),
-                                height: uint!(240),
-                            },
-                            true,
-                        )
-                        .await
-                })
-            }
-            None => {
-                spawn_tokio!(async move { client.get_file(content, true,).await })
-            }
-        };
+        let handle = spawn_tokio!(async move { client.get_file(video, true,).await });
 
         spawn!(
             glib::PRIORITY_LOW,
             clone!(@weak self as obj => async move {
                 match handle.await.unwrap() {
                     Ok(Some(data)) => {
-                        let stream = gio::MemoryInputStream::from_bytes(&glib::Bytes::from(&data));
-                        let texture = Pixbuf::from_stream(&stream, gio::NONE_CANCELLABLE)
-                            .ok()
-                            .map(|pixbuf| gdk::Texture::for_pixbuf(&pixbuf));
-                        let child = gtk::Picture::for_paintable(texture.as_ref());
+                        // The GStreamer backend of GtkVideo doesn't work with input streams so
+                        // we need to store the file.
+                        // See: https://gitlab.gnome.org/GNOME/gtk/-/issues/4062
+                        let mut path = cache_dir();
+                        path.push(body);
+                        let file = gio::File::for_path(path);
+                        file.replace_contents(
+                            &data,
+                            None,
+                            false,
+                            gio::FileCreateFlags::REPLACE_DESTINATION,
+                            gio::NONE_CANCELLABLE,
+                        )
+                        .unwrap();
+                        let media_file = gtk::MediaFile::for_file(&file);
+                        media_file.set_muted(true);
+                        media_file.connect_prepared_notify(|media_file| media_file.play());
 
-                        match obj.media_type() {
-                            MediaType::Image => {
-                                // To get rounded corners
-                                child.set_overflow(gtk::Overflow::Hidden);
-                                child.add_css_class("thumbnail");
-                            }
-                            MediaType::Sticker => {
-                                child.set_tooltip_text(obj.body().as_deref());
-                            }
-                        }
+                        let video_player = VideoPlayer::new(&media_file);
 
-                        obj.set_child(Some(&child));
+                        obj.set_child(Some(&video_player));
                     }
                     Ok(None) => {
                         warn!("Could not retrieve invalid image file");
