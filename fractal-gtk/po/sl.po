@@ -2,14 +2,14 @@
 # Copyright (C) 2020 fractal's COPYRIGHT HOLDER
 # This file is distributed under the same license as the fractal package.
 #
-# Matej Urbančič <mateju@svn.gnome.org>, 2020–2021.
+# Matej Urbančič <mateju@svn.gnome.org>, 2020–2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: fractal master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/fractal/issues\n"
 "POT-Creation-Date: 2021-02-05 12:39+0000\n"
-"PO-Revision-Date: 2021-11-17 17:57+0100\n"
+"PO-Revision-Date: 2022-01-17 21:54+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -175,6 +175,9 @@ msgid ""
 "is optimized for collaboration in large groups, such as free software "
 "projects."
 msgstr ""
+"Fractal je program za GNOME s podporo za protokol sporočanja Matrix, napisan "
+"pa je v jeziku Rust. Vmesnik je prilagojen za sodelovalno delo velikih "
+"skupin, kot so projekti proste programske opreme."
 
 #: fractal-gtk/res/ui/account_settings.ui:14 fractal-gtk/res/ui/main_menu.ui:94
 msgid "Account Settings"
@@ -364,7 +367,7 @@ msgstr "Katerega ponudnika želite uporabiti?"
 
 #: fractal-gtk/res/ui/login_flow.ui:146
 msgid "Matrix provider domain, e.g. myserver.co"
-msgstr ""
+msgstr "Domena ponudnika protokola Matrix, npr. strežnik.si"
 
 #: fractal-gtk/res/ui/login_flow.ui:161
 msgid "The domain may not be empty."
@@ -384,7 +387,7 @@ msgstr "_Geslo"
 
 #: fractal-gtk/res/ui/login_flow.ui:284
 msgid "User name, email, or phone number"
-msgstr ""
+msgstr "Uporabniško ime, elektronski naslov ali telefonska številka"
 
 #: fractal-gtk/res/ui/login_flow.ui:317
 msgid "_Forgot Password?"
@@ -746,6 +749,8 @@ msgid ""
 "In order to add this email address, go to your inbox and follow the link you "
 "received. Once you’ve done that, click Continue."
 msgstr ""
+"Za dodajanje tega elektronskega naslova, preglejte mapo novih sporočil in "
+"sledite prejeti povezavi. Ko povezavo potrdite, kliknite za nadaljevanje."
 
 #: fractal-gtk/src/appop/account.rs:348
 msgid "Are you sure you want to delete your account?"
@@ -857,6 +862,8 @@ msgid ""
 "Please enter your phone number in the format: \n"
 " + your country code and your phone number."
 msgstr ""
+"Vpišite telefonsko številko v obliki: \n"
+" + kodo države in telefonska številka."
 
 #: fractal-gtk/src/backend/user.rs:192
 msgid "Couldn’t add the phone number."
@@ -888,7 +895,7 @@ msgstr "Matej Urbančič <mateju@src.gnome.org>"
 
 #: fractal-gtk/src/ui/about.rs:37
 msgid "Name by"
-msgstr ""
+msgstr "Ime po"
 
 #: fractal-gtk/src/ui/attach.rs:26
 msgid "Image from Clipboard"
@@ -964,13 +971,15 @@ msgstr "Ni mogoče pridobiti naslova URI datoteke"
 
 #: fractal-gtk/src/widgets/kicked_dialog.rs:46
 msgid "You have been kicked from {}"
-msgstr ""
+msgstr "Izvrženi ste iz sobe {}"
 
 #: fractal-gtk/src/widgets/kicked_dialog.rs:50
 msgid ""
 "Kicked by: {}\n"
 " “{}”"
 msgstr ""
+"Izvrže vas: {}\n"
+" »{}«"
 
 #: fractal-gtk/src/widgets/login.rs:95
 msgid "Malformed server URL"
@@ -994,7 +1003,7 @@ msgstr "Moderator"
 
 #: fractal-gtk/src/widgets/members_list.rs:148
 msgid "Privileged"
-msgstr ""
+msgstr "Posebna dovoljenja"
 
 #: fractal-gtk/src/widgets/message.rs:471
 #, c-format
@@ -1049,6 +1058,7 @@ msgstr "Priljubljeno"
 #: fractal-gtk/src/widgets/roomlist.rs:486
 msgid "Drag and drop rooms here to add them to your favorites"
 msgstr ""
+"Povlecite in spustite sobe na to mesto za dodajanje med priljubljena mesta"
 
 #: fractal-gtk/src/widgets/roomlist.rs:490
 msgid "Rooms"
