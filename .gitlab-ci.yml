@@ -48,8 +48,8 @@ nightly:
   script:
     - tar xf repo.tar
     - flatpak build-update-repo --generate-static-deltas repo/
-    - BUILD_ID=$(flat-manager-client create ${FLAT_MANAGER_URL} ${FLATPAK_REPO} --end-of-life="Fractal was migrated to a new codebase and the app-id changed" --end-of-life-rebase="org.gnome.Fractal.Devel")
-    - flat-manager-client push --commit --publish --wait ${BUILD_ID} repo/ || result=$?
+    - BUILD_ID=$(flat-manager-client create ${FLAT_MANAGER_URL} ${FLATPAK_REPO})
+    - flat-manager-client push --commit --end-of-life="Fractal was migrated to a new codebase and the app-id changed" --end-of-life-rebase="org.gnome.Fractal.Devel" --publish --wait ${BUILD_ID} repo/ || result=$?
     - flat-manager-client purge ${BUILD_ID}
     - exit $result
   variables:
