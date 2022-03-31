@@ -55,8 +55,5 @@ nightly:
   variables:
     FLAT_MANAGER_URL: https://flat-manager.gnome.org/
     FLATPAK_REPO: nightly
-  only:
-    refs:
-      - 'legacy'
     variables:
       - $REPO_TOKEN
